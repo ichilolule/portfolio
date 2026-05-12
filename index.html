@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+
+<!-- ============================================================
+  ページ基本情報（SEO）
+============================================================ -->
+<title>ichilole — studio mizumochi</title>
+<meta name="description" content="イラストレーター いちろれ（スタジオ水餅）のポートフォリオサイト。VTuber・配信者キャラクター、企業マスコットなどのイラスト制作">
+
+<!-- ============================================================
+  OGP（SNSシェア時のカード表示）
+  ▼ Netlify公開後に実際のURLへ書き換えてください
+  ▼ og:image 用に images/og.png を用意してください（1200×630px推奨）
+============================================================ -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="ichilole — studio mizumochi">
+<meta property="og:description" content="VTuber・配信者キャラクター、企業マスコットなどのイラスト制作">
+<meta property="og:url"         content="https://あなたのサイトURL.netlify.app">
+<meta property="og:image"       content="https://あなたのサイトURL.netlify.app/images/og.png">
+<meta name="twitter:card"       content="summary_large_image">
+
+<!-- ============================================================
+  favicon
+  ▼ images/favicon.ico を用意してください（32×32px推奨）
+============================================================ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/site.webmanifest">
+
+<!-- Google Fonts
+  Outfit          : 英字見出し・ラベル
+  Zen Kaku Gothic : 日本語テキスト
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: var(--bg);
+  color: var(--brown);
+  min-height: 100vh;
+  line-height: 1.7;
+}
+
+/* ============================================================
+  ナビゲーション
+============================================================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 110;
+  background: var(--brown);
+  height: 56px; padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--bg3);
+}
+
+.nav-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem; font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--bg2); text-decoration: none;
+  transition: color 0.15s; position: relative; z-index: 110;
+}
+.nav-logo:hover { color: var(--bg2); }
+
+.nav-center {
+  display: flex; gap: 2rem;
+  position: absolute; left: 50%; transform: translateX(-50%);
+}
+.nav-center a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none; color: var(--bg2);
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-center a:hover { color: var(--main); }
+.nav-center a.active { color: var(--bg2); border-bottom-color: var(--main); }
+
+/* 言語切り替えボタン */
+.nav-lang { display: flex; gap: 0.3rem; align-items: center; position: relative; z-index: 110; }
+.lang-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.06em;
+  background: none; border: 1.5px solid var(--bg2);
+  cursor: pointer; color: var(--bg2);
+  padding: 0.18rem 0.5rem; border-radius: 4px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.lang-btn.active {
+  background: var(--main); color: var(--bg2); border-color: var(--main);
+}
+.lang-sep { font-size: 0.6rem; color: var(--bg2); }
+
+.nav-burger {
+  display: none; flex-direction: column; justify-content: center;
+  width: 36px; height: 36px;
+  background: none; border: none; cursor: pointer;
+  padding: 0; position: relative; z-index: 110;
+}
+.nav-burger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--bg); border-radius: 2px;
+  position: absolute; left: 50%; transform: translateX(-50%);
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+.nav-burger span:nth-child(1) { top: 50%; margin-top: -6px; }
+.nav-burger span:nth-child(2) { top: 50%; margin-top: -0.75px; }
+.nav-burger span:nth-child(3) { top: 50%; margin-top: 5px; }
+.nav-burger.open span:nth-child(1) { transform: translateX(-50%) translateY(6px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; transform: translateX(-50%) scaleX(0); }
+.nav-burger.open span:nth-child(3) { transform: translateX(-50%) translateY(-6px) rotate(-45deg); }
+
+/* モバイルメニューオーバーレイ */
+.nav-mobile-overlay {
+  position: fixed; inset: 0; z-index: 105;
+  background: rgba(234, 222, 211, 0.96);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.nav-mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.nav-mobile-overlay a {
+  font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700;
+  letter-spacing: 0.08em; text-decoration: none; color: var(--brown2);
+  padding-bottom: 4px; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-mobile-overlay a:hover { color: var(--main); }
+.nav-mobile-overlay a.active {
+  color: var(--brown); border-bottom-color: var(--main);
+}
+.nav-mobile-lang {
+  display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;
+}
+.nav-mobile-lang .lang-btn { color: var(--brown2); border-color: var(--bg3); }
+.nav-mobile-lang .lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
+
+@media (max-width: 640px) {
+  nav { padding: 0 1.25rem; }
+  .nav-center { display: none; }
+  .nav-lang { display: none; }
+  .nav-burger { display: flex; }
+  .portfolio-section { padding: 3.5rem 1.25rem 3rem; }
+  .modal { border-radius: 10px; }
+  .modal-header { padding: 1.5rem 1.25rem 1rem; }
+  .modal-content { padding: 1.25rem 1.25rem 1.5rem; }
+  .modal-title { font-size: 1.15rem; }
+  .block-image-row { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+  HOME — ヒーロー
+============================================================ */
+.hero {
+  width: 100%;
+  height: calc(100vh - 56px);
+  height: calc(100dvh - 56px);
+  margin-top: 56px;
+  background: var(--bg2);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/*
+  ▼▼▼ ヒーロー画像の設定方法 ▼▼▼
+
+  方法A：<img>タグ（推奨）
+    .hero-placeholder ブロックをまるごと削除して：
+      <img src="images/hero.png"
+           style="width:100%;height:100%;object-fit:cover;object-position:center top;"
+           alt="ichilole メインビジュアル">
+    を入れる。
+
+  方法B：CSS背景画像
+    .hero に追記：
+      background-image: url('images/hero.jpg');
+      background-size: cover;
+      background-position: center top;
+
+  推奨サイズ：1920×1080px 以上
+*/
+.hero-placeholder {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1rem; color: var(--brown2); text-align: center;
+}
+.hero-placeholder-box {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--pink-l);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-placeholder-box svg {
+  width: 32px; height: 32px; fill: none;
+  stroke: var(--pink); stroke-width: 1.5;
+}
+.hero-placeholder-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem; font-weight: 600; color: var(--brown2);
+}
+
+.hero-name {
+  position: absolute; bottom: 2rem; left: 2.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.1em; color: var(--brown);
+}
+
+/* 下向き矢印スクロールインジケーター（文字なし） */
+.hero-scroll-arrow {
+  position: absolute; bottom: 1.8rem; right: 2.5rem;
+  animation: bounceDown 1.8s ease-in-out infinite;
+}
+.hero-scroll-arrow svg {
+  width: 18px; height: 18px; fill: none;
+  stroke: var(--brown2); stroke-width: 2;
+  display: block;
+}
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+
+/* ============================================================
+  Portfolio セクション
+============================================================ */
+.portfolio-section { background: #F6EFE8; padding: 5rem 3rem; }
+
+.sec-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--main); margin-bottom: 0.5rem;
+}
+.sec-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--brown); margin-bottom: 2.5rem;
+}
+
+/*
+  ▼▼▼ マソンリーグリッドの列数設定 ▼▼▼
+  CSS Grid + JS列振り分け方式。
+  列数は画面幅に応じて自動調整（最大5列）。
+  ブレークポイントは .masonry-col のJS側で制御。
+*/
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(var(--masonry-cols, 3), 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+/* 列ごとのラッパー */
+.masonry-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.m-item {
+  border-radius: 10px; overflow: hidden;
+  cursor: pointer; position: relative;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  will-change: transform;
+}
+.m-item:hover {
+  transform: scale(1.025);
+  box-shadow: 0 8px 28px rgba(92,63,59,0.18);
+}
+.m-item:hover .m-overlay { opacity: 1; }
+
+/*
+  ▼▼▼ サムネイル画像の設定方法 ▼▼▼
+  後述の works 配列の thumb にパスを入れてください
+  例: thumb: 'images/works/work01/thumb.jpg'
+*/
+.m-thumb-img { width: 100%; display: block; border-radius: 10px; }
+
+/* --bg色を10%乗算でサムネイルに重ねる */
+.m-item::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 10px;
+  background: var(--bg);
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.m-item:hover::after { opacity: 0; }
+.m-thumb-placeholder {
+  width: 100%; border-radius: 10px;
+  background: var(--bg2);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 2rem 1rem;
+  color: var(--brown2);
+  font-weight: 700; font-size: 0.72rem; text-align: center;
+}
+.m-overlay {
+  position: absolute; inset: 0;
+  background: rgba(92,63,59,0.75);
+  border-radius: 10px; opacity: 0;
+  transition: opacity 0.2s;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+}
+.m-overlay-title {
+  color: var(--bg); font-weight: 700; font-size: 0.9rem;
+  text-align: center; line-height: 1.5;
+}
+
+/* ============================================================
+  作品詳細モーダル（ブログ形式）
+============================================================ */
+.modal-bg {
+  display: none;
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(92,63,59,0.55);
+  align-items: flex-start; justify-content: center;
+  overflow-y: auto; padding: 2rem 1rem;
+}
+.modal-bg.open { display: flex; }
+
+.modal {
+  background: var(--bg); border-radius: 14px;
+  width: 100%; max-width: 680px;
+  margin: auto; position: relative; overflow: hidden;
+}
+.modal-header {
+  padding: 2rem 2rem 1.2rem;
+  border-bottom: 1px solid var(--bg3);
+}
+.modal-title {
+  font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--brown);
+}
+
+.modal-content { padding: 1.8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+
+.block-image { width: 100%; border-radius: 10px; overflow: hidden; }
+.block-image img { width: 100%; display: block; border-radius: 10px; }
+.block-image-placeholder {
+  width: 100%; min-height: 240px; border-radius: 10px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.5rem; font-size: 0.72rem; font-weight: 700;
+}
+.block-image-placeholder svg { width: 28px; height: 28px; fill: none; stroke-width: 1.5; }
+.block-image-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.block-image-row .block-image { margin: 0; }
+.block-heading {
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--main);
+  padding-bottom: 0.4rem; border-bottom: 1px solid var(--bg3);
+}
+.block-text { font-size: 0.9rem; color: var(--brown2); line-height: 1.9; white-space: pre-wrap; }
+.block-divider { height: 1px; background: var(--bg2); }
+/* ============================================================
+  Lightbox（画像全画面拡大）
+============================================================ */
+#lightbox {
+  display: flex;
+  position: fixed; inset: 0; z-index: 400;
+  background: rgba(28,18,16,0.92);
+  align-items: flex-start; justify-content: center;
+  overflow-y: auto;
+  cursor: zoom-out;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+  padding: 3rem 6vw;
+}
+#lightbox.open { opacity: 1; pointer-events: auto; }
+#lightbox img {
+  width: 88vw; height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+  pointer-events: none;
+  margin: auto; display: block;
+}
+#lightbox-close {
+  position: fixed; top: 1rem; right: 1rem; z-index: 401;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); border: none;
+  color: #fff; font-size: 1rem; cursor: pointer;
+  align-items: center; justify-content: center;
+  display: none;
+  transition: background 0.15s;
+}
+#lightbox-close:hover { background: rgba(255,255,255,0.28); }
+
+.block-link { font-size: 0.85rem; }
+.block-link a {
+  color: var(--main); text-decoration: underline;
+  text-underline-offset: 3px; transition: opacity 0.15s;
+}
+.block-link a:hover { opacity: 0.7; }
+
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: var(--bg3); border: none; border-radius: 50%;
+  width: 34px; height: 34px; cursor: pointer;
+  font-size: 0.9rem; color: var(--brown2);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+.modal-close:hover { background: var(--bg3); }
+
+/* ============================================================
+  フッター
+============================================================ */
+footer {
+  text-align: center; padding: 1.5rem;
+  background: var(--brown);
+  border-top: 1px solid var(--bg3);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.67rem; letter-spacing: 0.08em; color: var(--bg2);
+}
+.footer-sns {
+  display: flex; justify-content: center;
+  flex-wrap: wrap; gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+.footer-sns a {
+  font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600;
+  color: var(--bg2); text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-sns a:hover { color: var(--bg); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+  ナビゲーション
+============================================================ -->
+<nav>
+  <a class="nav-logo" href="/">ichilole</a>
+  <div class="nav-center">
+    <a class="active" href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/policy/">Policy</a>
+  </div>
+  <div class="nav-lang">
+    <button class="lang-btn active" id="btn-ja" onclick="setLang('ja')">JP</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn"        id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="nav-burger" id="navBurger" aria-label="メニューを開く" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navOverlay">
+  <a class="active" href="/" onclick="toggleMenu()">Home</a>
+  <a href="/about/" onclick="toggleMenu()">About</a>
+  <a href="/contact/" onclick="toggleMenu()">Contact</a>
+  <a href="/policy/" onclick="toggleMenu()">Policy</a>
+  <div class="nav-mobile-lang">
+    <button class="lang-btn" id="mob-btn-ja" onclick="setLang('ja'); toggleMenu()">JP</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
+  </div>
+</div>
+
+
+<!-- ============================================================
+  ヒーロー
+============================================================ -->
+<div class="hero">
+  <!--
+    ▼▼▼ ここをメインビジュアルに置き換えてください ▼▼▼
+
+    方法A（推奨）：.hero-placeholder をまるごと削除して
+      <img src="images/hero.png"
+           style="width:100%;height:100%;object-fit:cover;object-position:center top;"
+           alt="ichilole メインビジュアル">
+      を入れる。
+
+    方法B：.hero に CSS で
+      background-image: url('images/hero.jpg');
+      background-size: cover;
+      background-position: center top;
+      を追加する。
+
+    推奨サイズ：1920×1080px 以上
+  -->
+<img src="images/hero.webp"
+           style="width:100%;height:100%;object-fit:cover;object-position:center top;"
+           alt="ichilole メインビジュアル">
+
+  <div class="hero-name">ichilole / studio mizumochi</div>
+
+  <div class="hero-scroll-arrow">
+    <svg viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+  </div>
+</div>
+
+
+<!-- ============================================================
+  Portfolio セクション
+============================================================ -->
+<div class="portfolio-section">
+  <div class="sec-eyebrow">Works</div>
+  <div class="sec-title" id="portfolioTitle">Portfolio</div>
+  <div class="masonry" id="masonry"></div>
+</div>
+
+<footer>
+  <div class="footer-sns" id="footerSns"></div>
+  <div>© <span id="year"></span> ichilole / スタジオ水餅 — All rights reserved.</div>
+</footer>
+
+
+<!-- ============================================================
+  作品詳細モーダル
+============================================================ -->
+<div class="modal-bg" id="workModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-title" id="mTitle"></div>
+    </div>
+    <div class="modal-content" id="mContent"></div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+  Lightbox（画像全画面拡大）
+============================================================ -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="">
+</div>
+<button id="lightbox-close" onclick="closeLightbox()">✕</button>
+
+<script>
+/* ----------------------------------------------------------
+  ▼▼▼ SNSリンクの設定 ▼▼▼
+  href にURLを入れてください
+---------------------------------------------------------- */
+const SNS_LINKS = [
+  { label_ja: 'pixiv',       label_en: 'pixiv',       href: 'https://pixiv.me/ichilolule' },
+  { label_ja: 'X (Twitter)', label_en: 'X (Twitter)', href: 'https://x.com/ichilolule' },
+  { label_ja: 'Skeb',        label_en: 'Skeb',        href: 'https://skeb.jp/@ichilolule' },
+  { label_ja: 'Email',      label_en: 'Email',       href: 'mailto:' + 'info' + '@' + 'ichilole.com' },
+];
+
+/* ----------------------------------------------------------
+  作品データは data/works.json で管理します。
+  新しい作品を追加する場合は works.json だけ編集してください。
+  index.html を触る必要はありません。
+---------------------------------------------------------- */
+let works = [];
+
+/* ----------------------------------------------------------
+  言語テキスト定義
+  ▼▼▼ ここを編集してテキストを変更してください ▼▼▼
+---------------------------------------------------------- */
+const LANG = {
+  ja: {
+    heroPlaceholder: 'メインビジュアルをここに配置',
+    portfolioTitle:  'Portfolio',
+  },
+  en: {
+    heroPlaceholder: 'Place main visual here',
+    portfolioTitle:  'Portfolio',
+  },
+};
+
+let currentLang = 'ja';
+
+/* ----------------------------------------------------------
+  言語切り替え
+---------------------------------------------------------- */
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  const t = LANG[lang];
+
+  document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const mobJa = document.getElementById('mob-btn-ja');
+  const mobEn = document.getElementById('mob-btn-en');
+  if (mobJa) mobJa.classList.toggle('active', lang === 'ja');
+  if (mobEn) mobEn.classList.toggle('active', lang === 'en');
+
+  document.getElementById('portfolioTitle').textContent      = t.portfolioTitle;
+
+  renderMasonry();
+  renderFooterSns();
+}
+
+/* ----------------------------------------------------------
+  列数計算（画面幅に応じて最大5列）
+---------------------------------------------------------- */
+function getMasonryCols() {
+  const w = window.innerWidth;
+  if (w < 400)  return 1;
+  if (w < 640)  return 2;
+  if (w < 900)  return 3;
+  if (w < 1200) return 4;
+  return 5;
+}
+
+/* ----------------------------------------------------------
+  マソンリーグリッドの描画（CSS Grid + JS列振り分け）
+---------------------------------------------------------- */
+function renderMasonry() {
+  const grid = document.getElementById('masonry');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  const cols = getMasonryCols();
+  _lastMasonryCols = cols;
+  grid.style.setProperty('--masonry-cols', cols);
+
+  // 列ラッパーを生成
+  const colEls = Array.from({ length: cols }, () => {
+    const col = document.createElement('div');
+    col.className = 'masonry-col';
+    grid.appendChild(col);
+    return col;
+  });
+
+  // アイテムを列に均等配分（左から順番に）
+  works.forEach((w, i) => {
+    const item = document.createElement('div');
+    item.className = 'm-item';
+    item.onclick   = () => openModal(i);
+
+    // thumb 省略時は content_ja の最初の image ブロックを自動参照
+    const autoThumb = w.thumb
+      ?? w.content_ja?.find(b => b.type === 'image')?.src
+      ?? w.content_ja?.find(b => b.type === 'image-row')?.images?.[0]?.src;
+
+    const thumbHTML = autoThumb
+      ? `<img class="m-thumb-img" src="${autoThumb}" alt="${w.title}">`
+      : `<div class="m-thumb-placeholder" style="height:${w.thumbH ?? 220}px;">
+           <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:var(--brown2);stroke-width:1.5;">
+             <rect x="3" y="3" width="18" height="18" rx="3"/>
+             <circle cx="8.5" cy="8.5" r="1.5"/>
+             <path d="M21 15l-5-5L5 21"/>
+           </svg>
+           <span>${w.title}</span>
+         </div>`;
+
+    item.innerHTML = `${thumbHTML}
+      <div class="m-overlay">
+        <div class="m-overlay-title">${w.title}</div>
+      </div>`;
+
+    colEls[i % cols].appendChild(item);
+  });
+}
+
+/* リサイズ時：列数が変わった場合のみ再描画
+   iOS Safari はアドレスバー縮小で resize が発火するが
+   幅は変わらないため、列数チェックで無駄な再描画を防ぐ */
+let _masonryResizeTimer;
+let _lastMasonryCols = 0;
+window.addEventListener('resize', () => {
+  clearTimeout(_masonryResizeTimer);
+  _masonryResizeTimer = setTimeout(() => {
+    const newCols = getMasonryCols();
+    if (newCols !== _lastMasonryCols) {
+      _lastMasonryCols = newCols;
+      renderMasonry();
+    }
+  }, 150);
+});
+
+/* ----------------------------------------------------------
+  フッターSNSリンク描画（文字リンク）
+---------------------------------------------------------- */
+function renderFooterSns() {
+  const el = document.getElementById('footerSns');
+  if (!el) return;
+  el.innerHTML = SNS_LINKS.map(s =>
+    `<a href="${s.href}" target="_blank" rel="noopener">${s['label_' + currentLang]}</a>`
+  ).join('');
+}
+
+/* ----------------------------------------------------------
+  作品詳細モーダルを開く
+---------------------------------------------------------- */
+function openModal(i) {
+  const w = works[i];
+
+  document.getElementById('mTitle').textContent = w.title;
+
+  const content = currentLang === 'ja' ? w.content_ja : w.content_en;
+  const area    = document.getElementById('mContent');
+  area.innerHTML = '';
+
+  content.forEach(block => {
+    const el = document.createElement('div');
+    if (block.type === 'image') {
+      el.className = 'block-image';
+      el.innerHTML = block.src
+        ? `<img src="${block.src}" alt="${block.alt || ''}" style="cursor:zoom-in;" onclick="openLightbox(this.src)">`
+        : `<div class="block-image-placeholder" style="background:${c.bg};">
+             <svg viewBox="0 0 24 24" style="stroke:${c.color};">
+               <rect x="3" y="3" width="18" height="18" rx="3"/>
+               <circle cx="8.5" cy="8.5" r="1.5"/>
+               <path d="M21 15l-5-5L5 21"/>
+             </svg>
+             <span style="color:${c.color};font-size:0.72rem;font-weight:700;">${block.alt || ''}</span>
+           </div>`;
+    } else if (block.type === 'image-row') {
+      el.className = 'block-image-row';
+      block.images.forEach(img => {
+        const cell = document.createElement('div');
+        cell.className = 'block-image';
+        cell.innerHTML = img.src
+          ? `<img src="${img.src}" alt="${img.alt || ''}" style="cursor:zoom-in;" onclick="openLightbox(this.src)">`
+          : `<div class="block-image-placeholder" style="background:${c.bg};min-height:160px;">
+               <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:${c.color};stroke-width:1.5;">
+                 <rect x="3" y="3" width="18" height="18" rx="3"/>
+                 <circle cx="8.5" cy="8.5" r="1.5"/>
+                 <path d="M21 15l-5-5L5 21"/>
+               </svg>
+               <span style="color:${c.color};font-size:0.7rem;font-weight:700;">${img.alt || ''}</span>
+             </div>`;
+        el.appendChild(cell);
+      });
+    } else if (block.type === 'heading') {
+      el.className = 'block-heading';
+      el.textContent = block.text;
+    } else if (block.type === 'text') {
+      el.className = 'block-text';
+      el.textContent = block.text;
+    } else if (block.type === 'divider') {
+      el.className = 'block-divider';
+    } else if (block.type === 'link') {
+      el.className = 'block-link';
+      const a = document.createElement('a');
+      a.href = block.href;
+      a.textContent = block.text;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      el.appendChild(a);
+    }
+    area.appendChild(el);
+  });
+
+  document.getElementById('workModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('workModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ----------------------------------------------------------
+  Lightbox
+---------------------------------------------------------- */
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  const btn = document.getElementById('lightbox-close');
+  document.getElementById('lightboxImg').src = src;
+  lb.classList.add('open');
+  lb.scrollTop = 0;
+  btn.style.display = 'flex';
+}
+function closeLightbox() {
+  const lb = document.getElementById('lightbox');
+  const btn = document.getElementById('lightbox-close');
+  lb.classList.remove('open');
+  btn.style.display = 'none';
+}
+document.getElementById('workModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+/* ----------------------------------------------------------
+  初期化：works.json を読み込んでからサイトを描画
+---------------------------------------------------------- */
+fetch('/works.json')
+  .then(r => r.json())
+  .then(data => {
+    works = data;
+    setLang(localStorage.getItem('lang') || 'ja');
+  })
+  .catch(err => {
+    console.error('works.json の読み込みに失敗しました:', err);
+    // JSONが読めなくても残りのUIは表示する
+    setLang(localStorage.getItem('lang') || 'ja');
+  });
+
+function toggleMenu() {
+  document.getElementById('navBurger').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.body.style.overflow =
+    document.getElementById('navOverlay').classList.contains('open') ? 'hidden' : '';
+}
+
+document.getElementById('navOverlay').addEventListener('click', function(e) {
+  if (e.target === this) toggleMenu();
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

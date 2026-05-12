@@ -1,0 +1,176 @@
+[
+
+  {
+  "title": "【創作】moca（仮）",
+  "content_ja": [
+    { "type": "image", "src": "images/moca.webp", "alt": "【創作】moca（仮） 完成イラスト" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "なんとなくずっとアイコンで使っていた生き物の擬人化です。" },
+    { "type": "image", "src": "images/uwaa.webp", "alt": "moca（仮） イラスト2" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/moca.webp", "alt": "Final illustration" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "A humanized version of the creature I've casually used as my icon for a long time." },
+    { "type": "image", "src": "images/uwaa.webp", "alt": "moca (tentative) illustration 2" }
+  ]
+},
+
+
+  {
+  "title": "【創作】へんないきもの（9枚）",
+  "thumb": "images/small/kurage.jpg",
+  "content_ja": [
+    { "type": "image", "src": "images/small/kurage.jpg", "alt": "へんないきもの クラゲ" },
+    { "type": "image", "src": "images/small/tamago.jpg", "alt": "へんないきもの タマゴ" },
+    { "type": "image", "src": "images/small/miso.jpg", "alt": "へんないきもの ミソ" },
+    { "type": "image", "src": "images/small/kasutera.jpg", "alt": "へんないきもの カステラ" },
+    { "type": "image", "src": "images/small/katatsumuri.jpg", "alt": "へんないきもの カタツムリ" },
+    { "type": "image", "src": "images/small/kotatsu.jpg", "alt": "へんないきもの コタツ" },
+    { "type": "image", "src": "images/small/obake.jpg", "alt": "へんないきもの オバケ" },
+    { "type": "image", "src": "images/small/hampter.jpg", "alt": "へんないきもの ハムスター" },
+    { "type": "image", "src": "images/small/beriko.jpg", "alt": "へんないきもの ベリコ" },
+    { "type": "link", "href": "https://store.line.me/stickershop/product/27486851/ja", "text": "LINE STOREで見る" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/small/kurage.jpg", "alt": "Weird Creatures — Jellyfish" },
+    { "type": "image", "src": "images/small/tamago.jpg", "alt": "Weird Creatures — Egg" },
+    { "type": "image", "src": "images/small/miso.jpg", "alt": "Weird Creatures — Miso" },
+    { "type": "image", "src": "images/small/kasutera.jpg", "alt": "Weird Creatures — Castella" },
+    { "type": "image", "src": "images/small/katatsumuri.jpg", "alt": "Weird Creatures — Snail" },
+    { "type": "image", "src": "images/small/kotatsu.jpg", "alt": "Weird Creatures — Kotatsu" },
+    { "type": "image", "src": "images/small/obake.jpg", "alt": "Weird Creatures — Ghost" },
+    { "type": "image", "src": "images/small/hampter.jpg", "alt": "Weird Creatures — Hamster" },
+    { "type": "image", "src": "images/small/beriko.jpg", "alt": "Weird Creatures — Beriko" },
+    { "type": "link", "href": "https://store.line.me/stickershop/product/27486851/ja", "text": "View on LINE STORE" }
+  ]
+},
+
+
+
+  {
+  "title": "Gariba様より4周年記念イラスト",
+  "year": "2026",
+  "content_ja": [
+    { "type": "image", "src": "images/Gariba.webp", "alt": "Gariba様4周年記念イラスト 完成" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "【お仕事】\nGariba様より4周年記念イラストのご依頼をいただきました。\n\n★ご依頼内容\nテーマ：4周年記念イラスト\nモチーフ：4を持ち上げる4人の衣装違いキャラクター（SD）\n\nめでたい雰囲気を出すために、シチュエーションを部屋の飾り付け中に設定しました。\n全員同じキャラクターではありますが、単調さを消すために表情と動き、顔の向きなどが被らないような配置を目指しています。" },
+    { "type": "link", "href": "https://x.com/Gariba_ribariba/status/2027964797845696995", "text": "Gariba様：X (Twitter)" },
+    { "type": "image", "src": "images/Gariba_line.jpg", "alt": "Gariba様4周年記念イラスト 線画" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/Gariba.webp", "alt": "Gariba 4th anniversary illustration — final" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "[Commissioned Work]\nIllustrated a 4th anniversary piece for Gariba.\n\n★ Details\nTheme: 4th anniversary illustration\nConcept: Four versions of the same character in different outfits, each holding up the number \"4\" (chibi style)\n\nTo capture a celebratory mood, the scene is set during room decoration.\nAlthough all four are the same character, care was taken to vary their expressions, poses, and directions to avoid a repetitive feel." },
+    { "type": "link", "href": "https://x.com/Gariba_ribariba/status/2027964797845696995", "text": "Gariba：X (Twitter)" },
+    { "type": "image", "src": "images/Gariba_line.jpg", "alt": "Gariba 4th anniversary illustration — line art" }
+  ]
+},
+
+  {
+  "title": "EaglePalette様　マスコットキャラクター",
+  "content_ja": [
+    { "type": "image", "src": "images/eag/original.png", "alt": "EaglePalette マスコットキャラクター メインイラスト" },
+    { "type": "text", "text": "EaglePalette様よりご依頼いただいたマスコットキャラクターです。" },
+    { "type": "image-row", "images": [
+      { "src": "images/eag/monoc.png", "alt": "EaglePalette マスコット モノクロ版" },
+      { "src": "images/eag/1.webp", "alt": "EaglePalette マスコット バリエーション1" }
+    ]},
+    { "type": "heading", "text": "Commission Details" },
+    { "type": "text", "text": "★ご依頼内容\nコンセプト：ブランドモチーフ（鷲＋パレット）のデフォルメ\nターゲット：親子向けファッションブランド\nモチーフ：シンプル、ラフ、企業ロゴを入れる\n\n鷲はかっこいいイラストで描かれることが多いのですが、親子向けブランドらしく丸くて優しい雰囲気を目指しました。Tシャツやwebページ用に使うとのことでしたので、透過PNG（黒のみ）のモノクロも添付しています。" },
+    { "type": "link", "href": "https://shop.eagle-pallet.com/", "text": "EaglePalette" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/eag/original.png", "alt": "EaglePalette mascot character — main illustration" },
+    { "type": "text", "text": "A mascot character created for EaglePalette." },
+    { "type": "image-row", "images": [
+      { "src": "images/eag/monoc.png", "alt": "EaglePalette mascot — monochrome version" },
+      { "src": "images/eag/1.webp", "alt": "EaglePalette mascot — variation 1" }
+    ]},
+    { "type": "heading", "text": "Commission Details" },
+    { "type": "text", "text": "★Commission Details\nConcept: Chibi-style design based on the brand motifs (eagle + palette)\nTarget: Family-oriented fashion brand\nStyle: Simple, casual, with company logo incorporated\n\nEagles are often depicted in bold, striking styles, but I aimed for a round, gentle look fitting for a family-oriented brand. Since the artwork would be used on T-shirts and web pages, I also provided a monochrome transparent PNG in black." },
+    { "type": "link", "href": "https://shop.eagle-pallet.com/", "text": "EaglePalette" }
+  ]
+},
+
+
+{
+  "title": "寿司",
+  "content_ja": [
+    { "type": "image", "src": "images/magro.jpg", "alt": "超デカまぐろ イラスト" },
+    { "type": "text", "text": "★こだわりポイント\n・一貫がデカい\n・執拗なわさび\n・箸置きが理論上最悪の形状をしている" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/magro.jpg", "alt": "Super Giant Tuna — illustration" },
+    { "type": "text", "text": "★Points of Pride\n・Each piece is enormous\n・An unreasonable amount of wasabi\n・The chopstick rest is theoretically the worst possible shape" }
+  ]
+},
+  {
+  "title": "【創作】ぽゆぽゆおいも星スタンプ",
+  "content_ja": [
+    { "type": "image", "src": "images/poyu.webp", "alt": "ぽゆぽゆおいも星スタンプ イラスト1" },
+    { "type": "image", "src": "images/poyu2.jpg", "alt": "ぽゆぽゆおいも星スタンプ イラスト2" },
+    { "type": "text", "text": "野菜モチーフのもちもちしてる生物です。人間の真似をしてリボンが生えたり、4次元的な変形をしたり、地球にあるものに擬態します。" },
+    { "type": "link", "href": "https://store.line.me/stickershop/product/18458123/ja", "text": "LINE STOREで見る" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/poyu.webp", "alt": "Poyu-Poyu Oimo-Hoshi Stickers — illustration 1" },
+    { "type": "image", "src": "images/poyu2.jpg", "alt": "Poyu-Poyu Oimo-Hoshi Stickers — illustration 2" },
+    { "type": "text", "text": "Squishy little creatures inspired by vegetables. They mimic humans by sprouting ribbons, contorting in four-dimensional ways, and disguising themselves as things found on Earth." },
+    { "type": "link", "href": "https://store.line.me/stickershop/product/18458123/ja", "text": "View on LINE STORE" }
+  ]
+},
+
+
+  {
+  "title": "【創作】綿積コットン（わた子）",
+  "content_ja": [
+    { "type": "image", "src": "images/wata.webp", "alt": "綿積コットン（わた子）完成イラスト" },
+    { "type": "image", "src": "images/wata2.webp", "alt": "綿積コットン（わた子）イラスト2" },
+    { "type": "text", "text": "お掃除係なのに、自分の名前が一番ほこりを撒き散らしそうなのを気にしている。" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/wata.webp", "alt": "Cotton Watazumi (Wata-ko) — final illustration" },
+    { "type": "image", "src": "images/wata2.webp", "alt": "Cotton Watazumi (Wata-ko) — illustration 2" },
+    { "type": "text", "text": "A timid little cleaner worried that her own name sounds more like a dust storm than a cleaning service." }
+  ]
+},
+
+  {
+  "title": "【Skeb】星白真命様より",
+  "content_ja": [
+    { "type": "image", "src": "images/zheng.webp", "alt": "【Skeb】星白真命様より 完成イラスト" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "ご依頼内容：私服衣装のデザイン" },
+    { "type": "link", "href": "https://x.com/HoshiroMamori", "text": "星白真命(@HoshiroMamori)" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/zheng.webp", "alt": "Final illustration" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "Commission request: Casual outfit design." },
+    { "type": "link", "href": "https://x.com/HoshiroMamori", "text": "Hoshiro Mamori (@HoshiroMamori)" }
+  ]
+},
+
+
+
+
+
+  {
+    "title": "【創作】秋色くるみ",
+    "year": "2020",
+    "content_ja": [
+      { "type": "image", "src": "images/kurumi.webp", "alt": "秋色くるみ 完成イラスト" },
+      { "type": "heading", "text": "About this work" },
+      { "type": "text", "text": "秋色くるみ　akiiro kurumi\nチョコミントとクッキーモチーフのオリジナルキャラクターです。" },
+      { "type": "link", "href": "https://line.me/S/sticker/11666472/?lang=ja&utm_source=gnsh_stickerDetail", "text": "LINE スタンプ" }
+    ],
+    "content_en": [
+      { "type": "image", "src": "images/kurumi.webp", "alt": "Akiiro Kurumi — final illustration" },
+      { "type": "heading", "text": "About this work" },
+      { "type": "text", "text": "Akiiro Kurumi (秋色くるみ)\nAn original character inspired by chocolate mint and cookie motifs." },
+      { "type": "link", "href": "https://line.me/S/sticker/11666472/?lang=ja&utm_source=gnsh_stickerDetail", "text": "LINE Sticker" }
+    ]
+  }
+
+]

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<title>404 — ichilole</title>
+<meta name="description" content="ページが見つかりませんでした / Page not found — ichilole">
+<link rel="icon" href="images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: var(--bg); color: var(--brown);
+  min-height: 100vh; line-height: 1.7;
+  display: flex; flex-direction: column;
+}
+
+/* ナビ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 110;
+  background: var(--brown); height: 56px; padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--bg3);
+}
+.nav-logo {
+  font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700;
+  letter-spacing: 0.06em; color: var(--bg); text-decoration: none;
+  transition: color 0.15s; position: relative; z-index: 110;
+}
+.nav-logo:hover { color: var(--bg2); }
+.nav-center { display: flex; gap: 2rem; position: absolute; left: 50%; transform: translateX(-50%); }
+.nav-center a {
+  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.04em; text-decoration: none; color: var(--bg);
+  padding-bottom: 3px; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-center a:hover { color: var(--main); }
+
+.nav-burger {
+  display: none; flex-direction: column; justify-content: center;
+  width: 36px; height: 36px;
+  background: none; border: none; cursor: pointer;
+  padding: 0; position: relative; z-index: 110;
+}
+.nav-burger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--bg); border-radius: 2px;
+  position: absolute; left: 50%; transform: translateX(-50%);
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+.nav-burger span:nth-child(1) { top: 50%; margin-top: -6px; }
+.nav-burger span:nth-child(2) { top: 50%; margin-top: -0.75px; }
+.nav-burger span:nth-child(3) { top: 50%; margin-top: 5px; }
+.nav-burger.open span:nth-child(1) { transform: translateX(-50%) translateY(6px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; transform: translateX(-50%) scaleX(0); }
+.nav-burger.open span:nth-child(3) { transform: translateX(-50%) translateY(-6px) rotate(-45deg); }
+
+/* モバイルメニューオーバーレイ */
+.nav-mobile-overlay {
+  position: fixed; inset: 0; z-index: 105;
+  background: rgba(234, 222, 211, 0.96);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.nav-mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.nav-mobile-overlay a {
+  font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700;
+  letter-spacing: 0.08em; text-decoration: none; color: var(--brown2);
+  padding-bottom: 4px; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-mobile-overlay a:hover { color: var(--main); }
+
+@media (max-width: 640px) {
+  nav { padding: 0 1.25rem; }
+  .nav-center { display: none; }
+  .nav-burger { display: flex; }
+}
+
+/* メインコンテンツ */
+main {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 5rem 2rem 3rem;
+}
+.container { text-align: center; max-width: 480px; }
+
+.num {
+  font-family: 'Outfit', sans-serif; font-size: 7rem; font-weight: 700;
+  line-height: 1; letter-spacing: -0.04em;
+  color: var(--bg3); margin-bottom: 1.5rem;
+  user-select: none;
+}
+
+.title-ja {
+  font-size: 1.05rem; font-weight: 700; color: var(--brown);
+  margin-bottom: 0.3rem;
+}
+.title-en {
+  font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600;
+  color: var(--brown2); letter-spacing: 0.06em;
+  margin-bottom: 1.4rem;
+}
+.desc {
+  font-size: 0.84rem; color: var(--brown2);
+  line-height: 1.85; margin-bottom: 0.4rem;
+}
+
+.btn {
+  display: inline-block; margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background: var(--main); color: var(--bg);
+  border-radius: 7px;
+  font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.08em; text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn:hover { background: var(--main-d); transform: translateY(-1px); }
+
+footer {
+  text-align: center; padding: 1.5rem;
+  background: var(--brown);
+  border-top: 1px solid var(--bg3);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.67rem; letter-spacing: 0.08em; color: var(--bg2);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">ichilole</a>
+  <div class="nav-center">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/policy/">Policy</a>
+  </div>
+  <button class="nav-burger" id="navBurger" aria-label="メニューを開く" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navOverlay">
+  <a href="/" onclick="toggleMenu()">Home</a>
+  <a href="/about/" onclick="toggleMenu()">About</a>
+  <a href="/contact/" onclick="toggleMenu()">Contact</a>
+  <a href="/policy/" onclick="toggleMenu()">Policy</a>
+</div>
+
+
+<main>
+  <div class="container">
+    <div class="num">404</div>
+
+    <div class="title-ja">ページが見つかりませんでした</div>
+    <div class="title-en">Page Not Found</div>
+
+    <p class="desc">
+      お探しのページは存在しないか、移動した可能性があります。<br>
+      The page you're looking for doesn't exist or has been moved.
+    </p>
+
+    <a class="btn" href="/">← ポートフォリオに戻る &nbsp;/&nbsp; Back to Portfolio</a>
+  </div>
+</main>
+
+<footer>© <span id="year"></span> ichilole / スタジオ水餅 — All rights reserved.</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navBurger').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.body.style.overflow =
+    document.getElementById('navOverlay').classList.contains('open') ? 'hidden' : '';
+}
+
+document.getElementById('navOverlay').addEventListener('click', function(e) {
+  if (e.target === this) toggleMenu();
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

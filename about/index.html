@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<title>About — ichilole</title>
+<meta name="description" content="いちろれ（スタジオ水餅）のプロフィール。VTuber・配信者キャラクター、企業マスコットなどのイラスト制作を承っております。">
+<link rel="icon" href="../images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: var(--bg2); color: var(--brown);
+  min-height: 100vh; line-height: 1.7;
+}
+
+/* ============================================================
+  ナビゲーション
+============================================================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 110;
+  background: var(--brown); height: 56px; padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--bg3);
+}
+.nav-logo {
+  font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700;
+  letter-spacing: 0.06em; color: var(--bg2); text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-logo:hover { color: var(--bg2); }
+.nav-center {
+  display: flex; gap: 2rem;
+  position: absolute; left: 50%; transform: translateX(-50%);
+}
+.nav-center a {
+  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.04em; text-decoration: none; color: var(--bg2);
+  padding-bottom: 3px; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-center a:hover { color: var(--main); }
+.nav-center a.active { color: var(--bg2); border-bottom-color: var(--main); }
+.nav-lang { display: flex; gap: 0.3rem; align-items: center; }
+.lang-btn {
+  font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 700;
+  background: none; border: 1.5px solid var(--bg2); cursor: pointer;
+  color: var(--bg2); padding: 0.18rem 0.5rem; border-radius: 4px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
+.lang-sep { font-size: 0.6rem; color: var(--bg2); }
+
+.nav-burger {
+  display: none; flex-direction: column; justify-content: center;
+  width: 36px; height: 36px;
+  background: none; border: none; cursor: pointer;
+  padding: 0; position: relative; z-index: 110;
+}
+.nav-burger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--bg2); border-radius: 2px;
+  position: absolute; left: 50%; transform: translateX(-50%);
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+.nav-burger span:nth-child(1) { top: 50%; margin-top: -6px; }
+.nav-burger span:nth-child(2) { top: 50%; margin-top: -0.75px; }
+.nav-burger span:nth-child(3) { top: 50%; margin-top: 5px; }
+.nav-burger.open span:nth-child(1) { transform: translateX(-50%) translateY(6px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; transform: translateX(-50%) scaleX(0); }
+.nav-burger.open span:nth-child(3) { transform: translateX(-50%) translateY(-6px) rotate(-45deg); }
+
+/* モバイルメニューオーバーレイ */
+.nav-mobile-overlay {
+  position: fixed; inset: 0; z-index: 105;
+  background: rgba(234, 222, 211, 0.96);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.nav-mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.nav-mobile-overlay a {
+  font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700;
+  letter-spacing: 0.08em; text-decoration: none; color: var(--brown2);
+  padding-bottom: 4px; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-mobile-overlay a:hover { color: var(--main); }
+.nav-mobile-overlay a.active {
+  color: var(--brown); border-bottom-color: var(--main);
+}
+.nav-mobile-lang {
+  display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;
+}
+.nav-mobile-lang .lang-btn { color: var(--brown2); border-color: var(--bg3); }
+.nav-mobile-lang .lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
+
+@media (max-width: 640px) {
+  nav { padding: 0 1.25rem; }
+  .nav-center { display: none; }
+  .nav-lang { display: none; }
+  .nav-burger { display: flex; }
+  .outer { padding: 4.5rem 1.25rem 3rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+}
+
+/* ============================================================
+  メインコンテンツ
+============================================================ */
+.outer {
+  max-width: 860px; margin: 0 auto;
+  padding: 5rem 3rem 2.5rem;
+}
+
+.sec-eyebrow {
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--main); margin-bottom: 0.5rem;
+}
+.sec-title {
+  font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700;
+  color: var(--brown); margin-bottom: 2rem;
+}
+
+/* ============================================================
+  プロフィールヘッダー
+============================================================ */
+.profile-header {
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--bg3);
+  margin-bottom: 2.5rem;
+}
+
+/* アイコン＋名前の横並びブロック */
+.profile-name-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+/*
+  ▼▼▼ SNSアイコン枠 ▼▼▼
+  .icon-placeholder をまるごと削除して
+    <img src="../images/icon.png" alt="ichilole アイコン">
+  を入れてください。推奨サイズ：400×400px 以上（正方形）
+*/
+.profile-icon {
+  width: 72px; height: 72px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--bg2);
+  border: 1.5px dashed var(--bg3);
+  display: flex; align-items: center; justify-content: center;
+}
+.profile-icon img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.icon-placeholder svg {
+  width: 24px; height: 24px; fill: none;
+  stroke: var(--pink-l); stroke-width: 1.5;
+}
+
+.profile-name {
+  font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700;
+  color: var(--brown); letter-spacing: 0.04em;
+  margin-bottom: 0.2rem;
+}
+.profile-name-sub {
+  font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600;
+  color: var(--brown2); letter-spacing: 0.06em;
+}
+
+.about-catch {
+  font-size: 0.87rem; color: var(--brown2);
+  line-height: 1.95;
+  margin-bottom: 2rem;
+}
+.about-catch strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--main);
+  margin-bottom: 0.65rem;
+}
+
+/* ============================================================
+  グリッドレイアウト（ツール・環境）
+============================================================ */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; margin-bottom: 2.5rem;
+}
+.about-block-title {
+  font-family: 'Outfit', sans-serif; font-size: 0.63rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--main); margin-bottom: 1.1rem;
+  padding-bottom: 0.4rem; border-bottom: 1px solid var(--bg3);
+}
+
+/* ============================================================
+  ツールリスト（文字のみ）
+============================================================ */
+.tool-list { display: flex; flex-direction: column; gap: 0.55rem; }
+.tool-item {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--bg3);
+}
+.tool-item:last-child { border-bottom: none; }
+.tool-name { font-size: 0.87rem; font-weight: 700; color: var(--brown); }
+.tool-years {
+  font-family: 'Outfit', sans-serif; font-size: 0.75rem;
+  font-weight: 600; color: var(--brown2);
+}
+
+/* ============================================================
+  環境・資格
+============================================================ */
+.env-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.env-item { font-size: 0.87rem; color: var(--brown2); line-height: 1.6; }
+.env-item strong { color: var(--brown); font-weight: 700; }
+
+/* ============================================================
+  SNSリンク（文字リンク）
+============================================================ */
+.sns-section { margin-bottom: 0; }
+.sns-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.sns-link {
+  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+  color: var(--brown); text-decoration: none;
+  padding: 0.45rem 1rem;
+  border: 1.5px solid var(--bg3); border-radius: 7px;
+  background: var(--bg);
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.sns-link:hover {
+  border-color: var(--main); color: var(--main); background: var(--bg);
+}
+
+/* ============================================================
+  フッター
+============================================================ */
+footer {
+  text-align: center; padding: 1.5rem;
+  background: var(--brown);
+  border-top: 1px solid var(--bg3);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.67rem; letter-spacing: 0.08em; color: var(--bg2);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">ichilole</a>
+  <div class="nav-center">
+    <a href="/">Home</a>
+    <a class="active" href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/policy/">Policy</a>
+  </div>
+  <div class="nav-lang">
+    <button class="lang-btn active" id="btn-ja" onclick="setLang('ja')">JP</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn"        id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="nav-burger" id="navBurger" aria-label="メニューを開く" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navOverlay">
+  <a href="/" onclick="toggleMenu()">Home</a>
+  <a class="active" href="/about/" onclick="toggleMenu()">About</a>
+  <a href="/contact/" onclick="toggleMenu()">Contact</a>
+  <a href="/policy/" onclick="toggleMenu()">Policy</a>
+  <div class="nav-mobile-lang">
+    <button class="lang-btn" id="mob-btn-ja" onclick="setLang('ja'); toggleMenu()">JP</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
+  </div>
+</div>
+
+<div class="outer">
+  <div class="sec-eyebrow">Profile</div>
+  <div class="sec-title">About</div>
+
+  <!-- プロフィールヘッダー -->
+  <div class="profile-header">
+    <div class="profile-text">
+
+      <!-- アイコン＋名前ブロック -->
+      <div class="profile-name-block">
+
+        <!-- ============================================================
+          ▼▼▼ SNSアイコン画像の差し替え方 ▼▼▼
+
+          <div class="icon-placeholder">〜</div> をまるごと削除して
+          代わりに下記を入れてください：
+
+            <img src="../images/icon.png" alt="ichilole アイコン">
+
+          推奨サイズ：400×400px 以上（正方形）
+        ============================================================ -->
+        <div class="profile-icon">
+          <img src="/images/abouticon.png" alt="ichilole アイコン">
+        </div>
+
+        <!-- 名前テキスト -->
+        <div>
+          <div class="profile-name">ichilole</div>
+          <div class="profile-name-sub">スタジオ水餅 / studio mizumochi</div>
+        </div>
+      </div>
+
+      <!-- キャッチコピー -->
+      <div class="about-catch" id="aboutCatch"></div>
+    </div>
+  </div>
+
+  <!-- ツール・環境グリッド -->
+  <div class="about-grid">
+    <!-- 使用ツール -->
+    <div>
+      <div class="about-block-title" id="toolsLabel">使用ツール</div>
+      <div class="tool-list">
+        <!--
+          ▼▼▼ ツール・経験年数を変更する場合 ▼▼▼
+          tool-name と tool-years のテキストを書き換えてください
+        -->
+        <div class="tool-item">
+          <span class="tool-name">Procreate</span>
+          <span class="tool-years" id="proc-yr">6年</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">Photoshop</span>
+          <span class="tool-years" id="ps-yr">5年</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">CLIP STUDIO</span>
+          <span class="tool-years" id="csp-yr">3年</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 作業環境・資格 -->
+    <div>
+      <div class="about-block-title" id="envLabel">作業環境・資格</div>
+      <div class="env-list">
+        <div class="env-item">
+          <strong id="deviceLabel">機材：</strong><br>iMac / Wacom Intuos Pro Large<br>iPad Pro 12.9
+        </div>
+        <div class="env-item">
+          <strong id="qualLabel">資格：</strong><br>
+          <span id="qualText">カラーコーディネーター検定2級（2019）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SNSリンク -->
+  <div class="sns-section">
+    <div class="about-block-title" id="snsLabel">SNS・リンク</div>
+    <div class="sns-list" id="snsList"></div>
+  </div>
+</div>
+
+<footer>
+  <div>© <span id="year"></span> ichilole / スタジオ水餅 — All rights reserved.</div>
+</footer>
+
+<script>
+/* ----------------------------------------------------------
+  ▼▼▼ SNSリンクの設定 ▼▼▼
+  href にURLを入れてください
+---------------------------------------------------------- */
+const SNS_LINKS = [
+  { label_ja: 'pixiv',       label_en: 'pixiv',       href: 'https://pixiv.me/ichilolule' },
+  { label_ja: 'X (Twitter)', label_en: 'X (Twitter)', href: 'https://x.com/ichilolule' },
+  { label_ja: 'Skeb',        label_en: 'Skeb',        href: 'https://skeb.jp/@ichilolule' },
+  { label_ja: 'Email',       label_en: 'Email',       href: 'mailto:' + 'info' + '@' + 'ichilole.com' },
+];
+
+/* ----------------------------------------------------------
+  言語テキスト定義
+  ▼▼▼ テキストを変更したい場合はここを編集してください ▼▼▼
+---------------------------------------------------------- */
+const LANG = {
+  ja: {
+    aboutCatch:
+      '<strong>VTuber / 北欧風 / マット調 / 2頭身〜6頭身 / デカ目</strong>' +
+      '配信者のキャラクターイラストや企業マスコットイラストなどを制作しています。<br>' +
+      'なんかあほっぽい（※あほではない）キャラクターが好き。<br>' +
+      'ゆるふわ系、天然、ポンコツクール、丸めがね、変顔、爆食い、両手にハンバーガー、食欲の化身、大食い選手権1位、柴犬、ハエトリグモ、頬袋がパンパンのハンマーヘッドシャークみたいになってるハムスター',
+    toolsLabel:   '使用ツール',
+    envLabel:     '作業環境・資格',
+    snsLabel:     'SNS・リンク',
+    deviceLabel:  '機材：',
+    qualLabel:    '資格：',
+    qualText:     'カラーコーディネーター検定2級（2019）',
+    procYr: '6年', psYr: '5年', cspYr: '3年',
+  },
+  en: {
+    aboutCatch:
+      '<strong>VTuber / Nordic / Matte / 2–6 heads tall / Big anime eyes</strong>' +
+      'Creating character illustrations for streamers and corporate mascots.<br>' +
+      'Rather than realism, I focus on capturing a sense of life through expressions and scenarios.<br>' +
+      'soft and fluffy types, airheads, cool-looking disasters, round glasses, silly faces, shiba inu, excessive eating, hamburgers in both hands, the physical embodiment of appetite, first place in competitive eating contests, hamsters with cheeks so full they start looking like hammerhead sharks',
+    toolsLabel:   'Tools',
+    envLabel:     'Setup & Credentials',
+    snsLabel:     'Links',
+    deviceLabel:  'Device: ',
+    qualLabel:    'Qualification: ',
+    qualText:     'Color Coordinator Exam Level 2 (2019)',
+    procYr: '6 yr', psYr: '5 yr', cspYr: '3 yr',
+  },
+};
+
+/* ----------------------------------------------------------
+  言語切り替え
+---------------------------------------------------------- */
+function setLang(lang) {
+  localStorage.setItem('lang', lang);
+  const t = LANG[lang];
+
+  document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const mobJa = document.getElementById('mob-btn-ja');
+  const mobEn = document.getElementById('mob-btn-en');
+  if (mobJa) mobJa.classList.toggle('active', lang === 'ja');
+  if (mobEn) mobEn.classList.toggle('active', lang === 'en');
+
+  document.getElementById('aboutCatch').innerHTML          = t.aboutCatch;
+  document.getElementById('toolsLabel').textContent        = t.toolsLabel;
+  document.getElementById('envLabel').textContent          = t.envLabel;
+  document.getElementById('snsLabel').textContent          = t.snsLabel;
+  document.getElementById('deviceLabel').textContent       = t.deviceLabel;
+  document.getElementById('qualLabel').textContent         = t.qualLabel;
+  document.getElementById('qualText').textContent          = t.qualText;
+  document.getElementById('proc-yr').textContent           = t.procYr;
+  document.getElementById('ps-yr').textContent             = t.psYr;
+  document.getElementById('csp-yr').textContent            = t.cspYr;
+
+  renderSns(lang);
+}
+
+/* ----------------------------------------------------------
+  SNSリンク描画
+---------------------------------------------------------- */
+function renderSns(lang) {
+  const list = document.getElementById('snsList');
+  if (list) {
+    list.innerHTML = SNS_LINKS.map(s =>
+      `<a class="sns-link" href="${s.href}" target="_blank" rel="noopener">${s['label_' + lang]}</a>`
+    ).join('');
+  }
+}
+
+/* 初期化 */
+setLang(localStorage.getItem('lang') || 'ja');
+
+function toggleMenu() {
+  document.getElementById('navBurger').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.body.style.overflow =
+    document.getElementById('navOverlay').classList.contains('open') ? 'hidden' : '';
+}
+
+document.getElementById('navOverlay').addEventListener('click', function(e) {
+  if (e.target === this) toggleMenu();
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<title>Policy — ichilole</title>
+<meta name="description" content="いちろれ（スタジオ水餅）の料金・ご依頼規約。Pricing and commission terms for ichilole / studio mizumochi.">
+<link rel="icon" href="../images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: var(--bg2); color: var(--brown);
+  min-height: 100vh; line-height: 1.7;
+}
+
+/* ============================================================
+  ナビゲーション
+============================================================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 110;
+  background: var(--brown); height: 56px; padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--bg3);
+}
+.nav-logo {
+  font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700;
+  letter-spacing: 0.06em; color: var(--bg2); text-decoration: none;
+  transition: color 0.15s; position: relative; z-index: 110;
+}
+.nav-logo:hover { color: var(--bg); }
+.nav-center {
+  display: flex; gap: 2rem;
+  position: absolute; left: 50%; transform: translateX(-50%);
+}
+.nav-center a {
+  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.04em; text-decoration: none; color: var(--bg2);
+  padding-bottom: 3px; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-center a:hover { color: var(--main); }
+.nav-center a.active { color: var(--bg2); border-bottom-color: var(--main); }
+.nav-lang { display: flex; gap: 0.3rem; align-items: center; position: relative; z-index: 110; }
+.lang-btn {
+  font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 700;
+  background: none; border: 1.5px solid var(--bg2); cursor: pointer;
+  color: var(--bg2); padding: 0.18rem 0.5rem; border-radius: 4px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
+.lang-sep { font-size: 0.6rem; color: var(--bg2); }
+
+/* ハンバーガーボタン */
+.nav-burger {
+  display: none; flex-direction: column; justify-content: center;
+  gap: 5px; width: 36px; height: 36px;
+  background: none; border: none; cursor: pointer;
+  padding: 6px; position: relative; z-index: 110;
+}
+.nav-burger span {
+  display: block; width: 100%; height: 1.5px;
+  background: var(--bg2); border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* モバイルメニューオーバーレイ */
+.nav-mobile-overlay {
+  position: fixed; inset: 0; z-index: 105;
+  background: rgba(234, 222, 211, 0.96);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.nav-mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.nav-mobile-overlay a {
+  font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700;
+  letter-spacing: 0.08em; text-decoration: none; color: var(--brown2);
+  padding-bottom: 4px; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-mobile-overlay a:hover { color: var(--main); }
+.nav-mobile-overlay a.active {
+  color: var(--brown); border-bottom-color: var(--main);
+}
+.nav-mobile-lang {
+  display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;
+}
+.nav-mobile-lang .lang-btn { color: var(--brown2); border-color: var(--bg3); }
+.nav-mobile-lang .lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
+
+@media (max-width: 640px) {
+  nav { padding: 0 1.25rem; }
+  .nav-center { display: none; }
+  .nav-lang { display: none; }
+  .nav-burger { display: flex; }
+  .outer { padding: 4.5rem 1.25rem 3rem; }
+  .plan-cards { grid-template-columns: 1fr; }
+  .formula-box { padding: 1rem; }
+  .price-table, .cancel-table, .revision-table { font-size: 0.78rem; }
+  .price-table th, .price-table td,
+  .cancel-table th, .cancel-table td,
+  .revision-table th, .revision-table td { padding: 0.45rem 0.5rem; }
+  .revision-table .td-stage { white-space: normal; }
+}
+
+/* ============================================================
+  メインコンテンツ
+============================================================ */
+.outer {
+  max-width: 720px; margin: 0 auto;
+  padding: 5rem 2.5rem 5rem;
+}
+.sec-eyebrow {
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--main); margin-bottom: 0.5rem;
+}
+.page-title {
+  font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700;
+  color: var(--brown); margin-bottom: 0.4rem;
+}
+.page-updated {
+  font-family: 'Outfit', sans-serif; font-size: 0.72rem;
+  color: var(--brown2); margin-bottom: 3rem;
+}
+
+/* ============================================================
+  セクション共通
+============================================================ */
+.p-section { margin-bottom: 2.8rem; }
+
+.p-section-title {
+  font-family: 'Outfit', sans-serif; font-size: 0.63rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--main);
+  padding-bottom: 0.45rem; margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--bg3);
+}
+.p-section p {
+  font-size: 0.87rem; color: var(--brown2);
+  line-height: 1.9; margin-bottom: 0.6rem;
+}
+.p-section p:last-child { margin-bottom: 0; }
+.p-section strong { color: var(--brown); }
+.p-small { font-size: 0.78rem !important; color: var(--brown2); }
+
+/* ============================================================
+  料金計算式ボックス
+============================================================ */
+.formula-box {
+  background: var(--bg); border-radius: 10px;
+  border: 1.5px solid var(--bg3);
+  padding: 1.4rem 1.6rem; margin-bottom: 1.6rem;
+}
+.formula-label {
+  font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--brown2); margin-bottom: 0.75rem;
+}
+.formula-text {
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--brown); line-height: 1.8;
+  background: var(--bg); border-radius: 6px;
+  padding: 0.75rem 1rem; margin-bottom: 1rem;
+}
+.formula-text span { color: var(--main); }
+
+/* 料金内訳テーブル */
+.price-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.price-table th {
+  font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--brown2); text-align: left;
+  padding: 0.4rem 0.75rem 0.6rem;
+  border-bottom: 1px solid var(--bg3);
+}
+.price-table td {
+  padding: 0.55rem 0.75rem;
+  color: var(--brown2); vertical-align: top;
+  border-bottom: 1px solid var(--bg3);
+}
+.price-table tr:last-child td { border-bottom: none; }
+.price-table .td-item { font-weight: 700; color: var(--brown); }
+.price-table .td-price {
+  font-family: 'Outfit', sans-serif; font-weight: 700;
+  color: var(--main); white-space: nowrap; text-align: right;
+}
+.price-table .td-note { font-size: 0.78rem; color: var(--brown2); }
+
+/* セクション内の区切り */
+.p-divider { height: 1px; background: var(--bg3); margin: 1.4rem 0; }
+
+/* プランサマリー */
+.plan-cards {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.85rem; margin-bottom: 1.2rem;
+}
+.plan-card {
+  background: var(--bg); border-radius: 9px;
+  border: 1.5px solid var(--bg3);
+  padding: 1rem 1.1rem;
+}
+.plan-card-name {
+  font-size: 0.87rem; font-weight: 700; color: var(--brown);
+  margin-bottom: 0.25rem;
+}
+.plan-card-desc { font-size: 0.75rem; color: var(--brown2); margin-bottom: 0.6rem; }
+.plan-card-price {
+  font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700;
+  color: var(--main);
+}
+
+/* キャンセルポリシー段階表 */
+.cancel-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.cancel-table th {
+  font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--brown2); text-align: left;
+  padding: 0.4rem 0.75rem 0.6rem;
+  border-bottom: 1px solid var(--bg3);
+}
+.cancel-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--bg3); vertical-align: middle;
+}
+.cancel-table tr:last-child td { border-bottom: none; }
+.cancel-table .td-stage { font-weight: 700; color: var(--brown); }
+.cancel-table .td-refund {
+  font-family: 'Outfit', sans-serif; font-weight: 700;
+  text-align: right; white-space: nowrap;
+}
+.refund-full    { color: var(--brown); }
+.refund-partial { color: var(--brown2); }
+.refund-none    { color: var(--main); }
+
+/* 修正ポリシー表 */
+.revision-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 0.6rem; }
+.revision-table th {
+  font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--brown2); text-align: left;
+  padding: 0.4rem 0.75rem 0.6rem;
+  border-bottom: 1px solid var(--bg3);
+}
+.revision-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--bg3); vertical-align: top;
+}
+.revision-table tr:last-child td { border-bottom: none; }
+.revision-table .td-stage { font-weight: 700; color: var(--brown); white-space: nowrap; }
+.revision-table .td-scope { font-size: 0.82rem; color: var(--brown2); }
+
+/* フッター */
+footer {
+  text-align: center; padding: 1.5rem;
+  background: var(--brown);
+  border-top: 1px solid var(--bg3);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.67rem; letter-spacing: 0.08em; color: var(--bg2);
+}
+.footer-sns {
+  display: flex; justify-content: center;
+  flex-wrap: wrap; gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+.footer-sns a {
+  font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600;
+  color: var(--bg2); text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-sns a:hover { color: var(--bg); }
+
+/* ============================================================
+  目次（Table of Contents）
+============================================================ */
+.toc {
+  background: var(--bg); border-radius: 10px;
+  border: 1.5px solid var(--bg3);
+  padding: 1.4rem 1.6rem; margin-bottom: 2rem;
+}
+.toc-title {
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--main); margin-bottom: 1rem;
+}
+.toc-list {
+  list-style: none;
+}
+.toc-list li {
+  margin-bottom: 0.5rem;
+}
+.toc-list li:last-child {
+  margin-bottom: 0;
+}
+.toc-list a {
+  font-size: 0.87rem; color: var(--brown2); text-decoration: none;
+  transition: color 0.15s;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid transparent;
+}
+.toc-list a:hover {
+  color: var(--brown); border-bottom-color: var(--main);
+}
+.toc-list a.active {
+  color: var(--main); font-weight: 700;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">ichilole</a>
+  <div class="nav-center">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a class="active" href="/policy/">Policy</a>
+  </div>
+  <div class="nav-lang">
+    <button class="lang-btn active" id="btn-ja" onclick="setLang('ja')">JP</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn"        id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="nav-burger" id="navBurger" aria-label="メニューを開く" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navOverlay">
+  <a href="/" onclick="toggleMenu()">Home</a>
+  <a href="/about/" onclick="toggleMenu()">About</a>
+  <a href="/contact/" onclick="toggleMenu()">Contact</a>
+  <a class="active" href="/policy/" onclick="toggleMenu()">Policy</a>
+  <div class="nav-mobile-lang">
+    <button class="lang-btn" id="mob-btn-ja" onclick="setLang('ja'); toggleMenu()">JP</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
+  </div>
+</div>
+
+<div class="outer">
+  <div class="sec-eyebrow">Rules & Policy</div>
+  <div class="page-title" id="pageTitle">ご依頼規約</div>
+  <div class="page-updated" id="pageUpdated">最終更新：2026年4月</div>
+
+  <!-- 目次 -->
+  <div class="toc">
+    <div class="toc-title" id="tocTitle">目次</div>
+    <ul class="toc-list">
+      <li><a href="#sec-01" id="toc-01">01. ご依頼について</a></li>
+      <li><a href="#sec-02" id="toc-02">02. 料金について</a></li>
+      <li><a href="#sec-03" id="toc-03">03. キャンセルポリシー</a></li>
+      <li><a href="#sec-04" id="toc-04">04. 著作権・使用権</a></li>
+      <li><a href="#sec-05" id="toc-05">05. 修正について</a></li>
+      <li><a href="#sec-06" id="toc-06">06. 納期</a></li>
+      <li><a href="#sec-07" id="toc-07">07. お支払い</a></li>
+    </ul>
+  </div>
+
+  <!-- 01 -->
+  <div class="p-section" id="sec-01">
+    <div class="p-section-title" id="sec1Title">01. ご依頼について</div>
+    <p id="sec1Body1">Contactフォーム、XのDMよりお受けしております。内容確認後、見積もりとスケジュールをご連絡いたします。</p>
+    <p id="sec1Body2">大ラフ→清書前モノクロラフ→最終確認の各工程でご確認をいただきながら進行いたします。</p>
+  </div>
+
+  <!-- 02 -->
+  <div class="p-section" id="sec-02">
+    <div class="p-section-title" id="sec2Title">02. 料金について</div>
+
+    <div class="plan-cards">
+      <div class="plan-card">
+        <div class="plan-card-name" id="plan1Name">SNSアイコン・個人用</div>
+        <div class="plan-card-desc" id="plan1Desc">顔のみ・既存キャラ・非商用</div>
+        <div class="plan-card-price" id="plan1Price">¥7,000〜</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card-name" id="plan2Name">配信活動向け</div>
+        <div class="plan-card-desc" id="plan2Desc">全身・新規キャラデザ・商用利用込</div>
+        <div class="plan-card-price" id="plan2Price">¥20,800〜</div>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-label" id="formulaLabel">料金計算式</div>
+      <div class="formula-text" id="formulaText">
+        （<span>イラスト料</span> ＋ <span>デザイン料</span>）×（<span>用途率</span> ＋ <span>非公開率</span>）＋ <span>振込手数料</span>
+      </div>
+
+      <table class="price-table" style="margin-bottom:1rem;">
+        <thead>
+          <tr>
+            <th id="th1a">イラスト料</th>
+            <th></th>
+            <th id="th1b" style="text-align:right;">基本料金</th>
+          </tr>
+        </thead>
+        <tbody id="illustTbody"></tbody>
+      </table>
+
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th id="th2a">用途・オプション</th>
+            <th></th>
+            <th id="th2b" style="text-align:right;">加算率</th>
+          </tr>
+        </thead>
+        <tbody id="optionTbody"></tbody>
+      </table>
+    </div>
+
+    <p class="p-small" id="sec2Note">最終的な料金は内容に応じて個別にお見積もりいたします。お気軽にご相談ください。</p>
+  </div>
+
+  <!-- 03 -->
+  <div class="p-section" id="sec-03">
+    <div class="p-section-title" id="sec3Title">03. キャンセルポリシー</div>
+
+    <table class="cancel-table">
+      <thead>
+        <tr>
+          <th id="cth1">制作段階</th>
+          <th id="cth2" style="text-align:right;">返金</th>
+        </tr>
+      </thead>
+      <tbody id="cancelTbody"></tbody>
+    </table>
+
+    <div class="p-divider"></div>
+    <p class="p-small" id="sec3Note1">※決済手数料（PayPal手数料等）は返金対象外となります。</p>
+    <p class="p-small" id="sec3Note2">※不適切なコミュニケーションや内容の著しい不明瞭さがある場合、私からキャンセルできる権利を留保します。その際は進捗に基づき返金いたします。</p>
+    <p class="p-small" id="sec3Note3">※ご連絡が一週間以上途絶えた場合、制作を一時停止またはキャンセル扱いとする場合があります。</p>
+  </div>
+
+  <!-- 04 -->
+  <div class="p-section" id="sec-04">
+    <div class="p-section-title" id="sec4Title">04. 著作権・使用権</div>
+    <p id="sec4Body1">著作権はいちろれ（スタジオ水餅）に帰属します。依頼者には使用権をお渡しします。</p>
+    <p id="sec4Body1b">使用権はご依頼時に申告された用途に限ります。</p>
+    <p id="sec4Body2">配信・グッズ販売は規模に関わらず商用利用となります。商用利用・グッズ化をご希望の場合は事前にお申し付けください（別途ライセンス料が発生する場合があります）。</p>
+    <p id="sec4Body3">二次配布・転売・AI学習への使用は禁止とします。</p>
+  </div>
+
+  <!-- 05 -->
+  <div class="p-section" id="sec-05">
+    <div class="p-section-title" id="sec5Title">05. 修正について</div>
+    <p id="sec5Intro" style="margin-bottom:1rem;">修正は2回まで無償で承ります。</p>
+
+    <table class="revision-table">
+      <thead>
+        <tr>
+          <th id="rth1">工程</th>
+          <th id="rth2">修正可能な範囲</th>
+        </tr>
+      </thead>
+      <tbody id="revisionTbody"></tbody>
+    </table>
+  </div>
+
+  <!-- 06 -->
+  <div class="p-section" id="sec-06">
+    <div class="p-section-title" id="sec6Title">06. 納期</div>
+    <p id="sec6Body1">着手から納品まで最低2週間いただいております。お急ぎの場合はご相談ください（特急料金が発生する場合があります）。</p>
+    <p id="sec6Body2">お支払いは希望納期の2週間前までにお願いいたします。お支払い確認後に制作を開始いたします。</p>
+    <p id="sec6Body3">なお、確認待ち期間は制作期間に含まれません。</p>
+  </div>
+
+  <!-- 07 -->
+  <div class="p-section" id="sec-07">
+    <div class="p-section-title" id="sec7Title">07. お支払い</div>
+    <p id="sec7Body1">手数料はご依頼者様のご負担となります。</p>
+    <p id="sec7Body2">対応：PayPal（海外・国内、+5%手数料）、銀行振込（国内）、PayPay（国内）、Amazonギフトカード（国内）</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-sns" id="footerSns"></div>
+  <div>© <span id="year"></span> ichilole / スタジオ水餅 — All rights reserved.</div>
+</footer>
+
+<script>
+/* ----------------------------------------------------------
+  SNSリンク
+---------------------------------------------------------- */
+const SNS_LINKS = [
+  { label_ja: 'pixiv',       label_en: 'pixiv',       href: 'https://pixiv.me/ichilolule' },
+  { label_ja: 'X (Twitter)', label_en: 'X (Twitter)', href: 'https://x.com/ichilolule' },
+  { label_ja: 'Skeb',        label_en: 'Skeb',        href: 'https://skeb.jp/@ichilolule' },
+  { label_ja: 'Email',      label_en: 'Email',       href: 'mailto:' + 'info' + '@' + 'ichilole.com' },
+];
+
+/* ----------------------------------------------------------
+  料金テーブルデータ
+---------------------------------------------------------- */
+const PRICE_DATA = {
+  illust: {
+    ja: [
+      { item: 'SDキャラクター',     note: '2〜3頭身',       price: '¥6,000〜' },
+      { item: '顔のみ',             note: '',    price: '¥7,000〜' },
+      { item: 'バストアップ',       note: '',     price: '¥8,500〜' },
+      { item: '全身',               note: '5〜7頭身',   price: '¥10,000〜' },
+      { item: '新規キャラデザイン', note: '',  price: '+¥6,000〜' },
+      { item: '背景あり（描き込み）', note: '', price: '+¥3,000〜' },
+    ],
+    en: [
+      { item: 'Chibi',                  note: '2-3 heads tall ',         price: '¥6,000+' },
+      { item: 'Headshot',               note: '',           price: '¥7,000+' },
+      { item: 'Bust-up',                note: '',            price: '¥8,500+' },
+      { item: 'Full Body',              note: '5-7 heads tall', price: '¥10,000+' },
+      { item: 'New Character Design',   note: ' ',  price: '+¥6,000+' },
+      { item: 'Detailed Background',    note: '', price: '+¥3,000+' },
+    ],
+  },
+  options: {
+    ja: [
+      { item: 'SNSアイコン・個人利用',    note: '非商用',           rate: '+0%' },
+      { item: '配信（YouTube/Twitch等）', note: '商用',          rate: '+30%' },
+      { item: 'グッズ制作・販売',         note: '商用',        rate: '+100%' },
+      { item: '非公開希望',               note: '',  rate: '+20%' },
+    ],
+    en: [
+      { item: 'SNS Icon / Personal Use',      note: 'Non-commercial',    rate: '+0%' },
+      { item: 'Streaming (YouTube, etc.)',     note: 'Commercial Use',    rate: '+30%' },
+      { item: 'Merchandise',                  note: 'Commercial Use',    rate: '+100%' },
+      { item: 'Portfolio Opt-out',            note: 'Non-disclosure',    rate: '+20%' },
+    ],
+  },
+};
+
+const CANCEL_DATA = {
+  ja: [
+    { stage: '着手前（大ラフ制作前）', refund: '全額返金', cls: 'refund-full' },
+    { stage: '大ラフ制作後',           refund: '50%返金',  cls: 'refund-partial' },
+    { stage: '清書前ラフ着手後',       refund: '返金不可', cls: 'refund-none' },
+  ],
+  en: [
+    { stage: 'Before work begins (before sketch phase)', refund: 'Full refund', cls: 'refund-full' },
+    { stage: 'After Initial Sketch',                     refund: '50% refund',  cls: 'refund-partial' },
+    { stage: 'After Clean Sketch',                       refund: 'No refund',   cls: 'refund-none' },
+  ],
+};
+
+const REVISION_DATA = {
+  ja: [
+    { stage: '大ラフ',       scope: '構図、デザイン、顔の向きなど大幅修正が可能' },
+    { stage: '清書前ラフ',   scope: 'ポーズの微調整、キャラクターの表情の修正が可能' },
+    { stage: '最終確認',     scope: '小物類、軽微なレタッチの範囲で色彩の修正が可能' },
+  ],
+  en: [
+    { stage: 'Initial Sketch', scope: 'Layout, design, pose, face direction, and other major changes' },
+    { stage: 'Clean Sketch',   scope: 'Silhouette and facial expression adjustments' },
+    { stage: 'Final Review',   scope: 'Small details and color adjustments within retouching range' },
+  ],
+};
+
+/* ----------------------------------------------------------
+  言語テキスト定義
+---------------------------------------------------------- */
+const LANG = {
+  ja: {
+    pageTitle:    'ご依頼規約',
+    pageUpdated:  '最終更新：2026年5月',
+    tocTitle:     '目次',
+    sec1Title:  '01. ご依頼について',
+    sec1Body1:  'Contactフォーム、XのDMよりお受けしております。内容確認後、見積もりとスケジュールをご連絡いたします。',
+    sec1Body2:  '大ラフ→清書前モノクロラフ→最終確認の各工程でご確認をいただきながら進行いたします。',
+    sec2Title:  '02. 料金について',
+    formulaLabel: '料金計算式',
+    formulaText:  'イラスト料　×　用途・オプション率　+　振込手数料',
+    formulaHighlights: ['イラスト料', '用途・オプション率', '振込手数料'],
+    th1a: 'イラスト料', th1b: '基本料金',
+    th2a: '用途・オプション', th2b: '加算率',
+    plan1Name: 'SNSアイコン・個人用',
+    plan1Desc: '顔のみ・既存キャラ・非商用',
+    plan1Price: '¥7,000〜',
+    plan2Name: '新規配信活動',
+    plan2Desc: '全身・新規キャラデザ・商用利用込',
+    plan2Price: '¥20,800〜',
+    sec2Note:   '※最終的な料金は内容に応じて個別にお見積もりいたします。お気軽にご相談ください。',
+    sec3Title:  '03. キャンセルポリシー',
+    cth1: '制作段階', cth2: '返金額',
+    sec3Note1:  '※決済手数料（PayPal手数料等）は返金対象外となります。',
+    sec3Note2:  '※不適切なコミュニケーションや内容の著しい不明瞭さがある場合、私からキャンセルできる権利を留保します。その際は進捗に基づき返金いたします。',
+    sec3Note3:  '※ご連絡が一週間以上途絶えた場合、制作を一時停止またはキャンセル扱いとする場合があります。',
+    sec4Title:  '04. 著作権・使用権',
+    sec4Body1:  '著作権はいちろれ（スタジオ水餅）に帰属します。依頼者には使用権をお渡しします。',
+    sec4Body1b: '使用権はご依頼時に申告された用途に限ります。',
+    sec4Body2:  '配信・グッズ販売は規模に関わらず商用利用となります。商用利用・グッズ化をご希望の場合は事前にお申し付けください（別途ライセンス料が発生する場合があります）。',
+    sec4Body3:  '二次配布・転売・AI学習への使用は禁止とします。',
+    sec5Title:  '05. 修正について',
+    sec5Intro:  '修正は2回まで無償で承ります。',
+    rth1: '工程', rth2: '修正可能な範囲',
+    sec6Title:  '06. 納期',
+    sec6Body1:  '着手から納品まで最低2週間いただいております。お急ぎの場合はご相談ください（特急料金が発生する場合があります）。',
+    sec6Body2:  'お支払いは希望納期の2週間前までにお願いいたします。お支払い確認後に制作を開始いたします。',
+    sec6Body3:  'なお、確認待ち期間は制作期間に含まれません。',
+    sec7Title:  '07. お支払い',
+    sec7Body1:  '手数料はご依頼者様のご負担となります。',
+    sec7Body2:  '対応：PayPal（海外・国内、+5%手数料）、銀行振込（国内）、PayPay（国内）',
+  },
+  en: {
+    pageTitle:    'Commission Terms',
+    pageUpdated:  'Last updated: May 2026',
+    tocTitle:     'Table of Contents',
+    sec1Title:  '01. About Commissions',
+    sec1Body1:  'I accept inquiries via the Contact form or X (Twitter) DM. I will follow up with a quote and schedule after reviewing your request.',
+    sec1Body2:  'Work progresses through three stages: Initial Sketch → Clean Sketch → Final Review.',
+    sec2Title:  '02. Pricing',
+    formulaLabel: 'Pricing Formula',
+    formulaText:  'Illustration Fee　×　Usage & Option Multiplier　+　Transaction Fee',
+    formulaHighlights: ['Illustration Fee', 'Usage & Option Multiplier', 'Transaction Fee'],
+    th1a: 'Illustration', th1b: 'Base Price',
+    th2a: 'Usage & Options', th2b: 'Add-on Rate',
+    plan1Name: 'SNS Icon / Personal',
+    plan1Desc: 'Headshot · Existing character · Non-commercial',
+    plan1Price: '¥7,000+',
+    plan2Name: 'Streaming Package',
+    plan2Desc: 'Full Body · New design · Commercial use included',
+    plan2Price: '¥20,800+',
+    sec2Note:   '* Final pricing is determined individually based on the details of your request. Feel free to ask.',
+    sec3Title:  '03. Cancellation Policy',
+    cth1: 'Stage', cth2: 'Refund',
+    sec3Note1:  '* Transaction fees (e.g. PayPal) are non-refundable.',
+    sec3Note2:  '* I reserve the right to cancel a commission due to inappropriate communication or lack of clarity in the brief. A refund will be issued based on progress.',
+    sec3Note3:  '* If I do not receive a response for one week or more, work may be paused or cancelled.',
+    sec4Title:  '04. Copyright & Usage Rights',
+    sec4Body1:  'Copyright remains with ichilole (Studio Mizumochi). The client is granted a usage license.',
+    sec4Body1b: 'Usage rights are limited to the intended purpose declared at the time of the commission.',
+    sec4Body2:  'Streaming and merchandise sales are considered commercial use regardless of scale. Please inform me in advance if you intend to use the artwork commercially (additional licensing fees may apply).',
+    sec4Body3:  'Redistribution, resale, and use for AI training are strictly prohibited.',
+    sec5Title:  '05. Revisions',
+    sec5Intro:  'Up to 2 revisions are included at no extra charge.',
+    rth1: 'Stage', rth2: 'Scope of Revisions',
+    sec6Title:  '06. Delivery',
+    sec6Body1:  'Please allow at least 2 weeks from the start date. Rush orders are available upon request (rush fee may apply).',
+    sec6Body2:  'Payment must be completed at least 2 weeks before your desired delivery date. Work begins after payment is confirmed.',
+    sec6Body3:  'Please note that time spent waiting for your feedback is not included in the production period.',
+    sec7Title:  '07. Payment',
+    sec7Body1:  'All transaction fees are the responsibility of the client.',
+    sec7Body2:  'Available: PayPal (international / domestic, +5% fee), Bank Transfer (Japan), PayPay (Japan)',
+  },
+};
+
+/* ----------------------------------------------------------
+  テーブル描画
+---------------------------------------------------------- */
+function renderTables(lang) {
+  document.getElementById('illustTbody').innerHTML =
+    PRICE_DATA.illust[lang].map(row => `
+      <tr>
+        <td class="td-item">${row.item}</td>
+        <td class="td-note">${row.note}</td>
+        <td class="td-price">${row.price}</td>
+      </tr>`).join('');
+
+  document.getElementById('optionTbody').innerHTML =
+    PRICE_DATA.options[lang].map(row => `
+      <tr>
+        <td class="td-item">${row.item}</td>
+        <td class="td-note">${row.note}</td>
+        <td class="td-price">${row.rate}</td>
+      </tr>`).join('');
+
+  document.getElementById('cancelTbody').innerHTML =
+    CANCEL_DATA[lang].map(row => `
+      <tr>
+        <td class="td-stage">${row.stage}</td>
+        <td class="td-refund ${row.cls}">${row.refund}</td>
+      </tr>`).join('');
+
+  document.getElementById('revisionTbody').innerHTML =
+    REVISION_DATA[lang].map(row => `
+      <tr>
+        <td class="td-stage">${row.stage}</td>
+        <td class="td-scope">${row.scope}</td>
+      </tr>`).join('');
+}
+
+/* ----------------------------------------------------------
+  フッターSNS描画
+---------------------------------------------------------- */
+function renderFooterSns(lang) {
+  const el = document.getElementById('footerSns');
+  if (!el) return;
+  el.innerHTML = SNS_LINKS.map(s =>
+    `<a href="${s.href}" target="_blank" rel="noopener">${s['label_' + lang]}</a>`
+  ).join('');
+}
+
+/* ----------------------------------------------------------
+  言語切り替え
+---------------------------------------------------------- */
+function setLang(lang) {
+  localStorage.setItem('lang', lang);
+  const t = LANG[lang];
+
+  document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const mobJa = document.getElementById('mob-btn-ja');
+  const mobEn = document.getElementById('mob-btn-en');
+  if (mobJa) mobJa.classList.toggle('active', lang === 'ja');
+  if (mobEn) mobEn.classList.toggle('active', lang === 'en');
+
+  const ids = [
+    'pageTitle','pageUpdated','tocTitle',
+    'sec1Title','sec1Body1','sec1Body2',
+    'sec2Title','formulaLabel','th1a','th1b','th2a','th2b',
+    'plan1Name','plan1Desc','plan1Price','plan2Name','plan2Desc','plan2Price','sec2Note',
+    'sec3Title','cth1','cth2','sec3Note1','sec3Note2','sec3Note3',
+    'sec4Title','sec4Body1','sec4Body1b','sec4Body2','sec4Body3',
+    'sec5Title','sec5Intro','rth1','rth2',
+    'sec6Title','sec6Body1','sec6Body2','sec6Body3',
+    'sec7Title','sec7Body1','sec7Body2',
+  ];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && t[id] !== undefined) el.textContent = t[id];
+  });
+
+  let formula = t.formulaText;
+  t.formulaHighlights.forEach(kw => {
+    formula = formula.replace(kw, `<span>${kw}</span>`);
+  });
+  document.getElementById('formulaText').innerHTML = formula;
+
+  renderTables(lang);
+  renderFooterSns(lang);
+}
+
+/* ----------------------------------------------------------
+  初期化＆スクロール検出
+---------------------------------------------------------- */
+window.addEventListener('load', () => {
+  const savedLang = localStorage.getItem('lang') || 'ja';
+  setLang(savedLang);
+  updateActiveToc();
+});
+
+window.addEventListener('scroll', updateActiveToc);
+
+function updateActiveToc() {
+  const sections = [
+    { id: 'sec-01', tocId: 'toc-01' },
+    { id: 'sec-02', tocId: 'toc-02' },
+    { id: 'sec-03', tocId: 'toc-03' },
+    { id: 'sec-04', tocId: 'toc-04' },
+    { id: 'sec-05', tocId: 'toc-05' },
+    { id: 'sec-06', tocId: 'toc-06' },
+    { id: 'sec-07', tocId: 'toc-07' },
+  ];
+
+  // すべての目次リンクからactiveクラスを削除
+  sections.forEach(s => {
+    const tocLink = document.getElementById(s.tocId);
+    if (tocLink) tocLink.classList.remove('active');
+  });
+
+  // 現在のスクロール位置に基づいてアクティブなセクションを決定
+  let activeSection = null;
+  for (const section of sections) {
+    const el = document.getElementById(section.id);
+    if (el && el.getBoundingClientRect().top <= 150) {
+      activeSection = section;
+    }
+  }
+
+  if (activeSection) {
+    const tocLink = document.getElementById(activeSection.tocId);
+    if (tocLink) tocLink.classList.add('active');
+  }
+}
+
+/* 初期化 */
+setLang(localStorage.getItem('lang') || 'ja');
+
+function toggleMenu() {
+  document.getElementById('navBurger').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.body.style.overflow =
+    document.getElementById('navOverlay').classList.contains('open') ? 'hidden' : '';
+}
+
+document.getElementById('navOverlay').addEventListener('click', function(e) {
+  if (e.target === this) toggleMenu();
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
