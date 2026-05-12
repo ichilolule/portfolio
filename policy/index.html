@@ -144,10 +144,13 @@ nav {
 /* ============================================================
   セクション共通
 ============================================================ */
-.p-section { margin-bottom: 2.8rem; }
+.p-section {
+  margin-bottom: 2.8rem;
+  scroll-margin-top: 5rem;
+}
 
 .p-section-title {
-  font-family: 'Outfit', sans-serif; font-size: 0.63rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--main);
   padding-bottom: 0.45rem; margin-bottom: 1.2rem;
@@ -759,6 +762,7 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('scroll', updateActiveToc);
+window.addEventListener('hashchange', updateActiveToc);
 
 function updateActiveToc() {
   const sections = [
@@ -784,6 +788,13 @@ function updateActiveToc() {
     if (el && el.getBoundingClientRect().top <= 150) {
       activeSection = section;
     }
+  }
+
+  // ページ下部到達時は最後のセクションを優先
+  const scrollBottom = window.pageYOffset + window.innerHeight;
+  const pageHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  if (scrollBottom >= pageHeight - 20) {
+    activeSection = sections[sections.length - 1];
   }
 
   if (activeSection) {
