@@ -586,6 +586,13 @@ const LANG = {
     pageTitle:    'ご依頼規約',
     pageUpdated:  '最終更新：2026年5月',
     tocTitle:     '目次',
+    toc01: '01. ご依頼について',
+    toc02: '02. 料金について',
+    toc03: '03. キャンセルポリシー',
+    toc04: '04. 著作権・使用権',
+    toc05: '05. 修正について',
+    toc06: '06. 納期',
+    toc07: '07. お支払い',
     sec1Title:  '01. ご依頼について',
     sec1Body1:  'Contactフォーム、XのDMよりお受けしております。内容確認後、見積もりとスケジュールをご連絡いたします。',
     sec1Body2:  '大ラフ→清書前モノクロラフ→最終確認の各工程でご確認をいただきながら進行いたします。',
@@ -627,6 +634,13 @@ const LANG = {
     pageTitle:    'Commission Terms',
     pageUpdated:  'Last updated: May 2026',
     tocTitle:     'Table of Contents',
+    toc01: '01. About Commissions',
+    toc02: '02. Pricing',
+    toc03: '03. Cancellation Policy',
+    toc04: '04. Copyright & Usage Rights',
+    toc05: '05. Revisions',
+    toc06: '06. Delivery',
+    toc07: '07. Payment',
     sec1Title:  '01. About Commissions',
     sec1Body1:  'I accept inquiries via the Contact form or X (Twitter) DM. I will follow up with a quote and schedule after reviewing your request.',
     sec1Body2:  'Work progresses through three stages: Initial Sketch → Clean Sketch → Final Review.',
@@ -741,6 +755,15 @@ function setLang(lang) {
     const el = document.getElementById(id);
     if (el && t[id] !== undefined) el.textContent = t[id];
   });
+
+  // 目次リンクの更新
+  for (let i = 1; i <= 7; i++) {
+    const tocId = `toc-0${i}`;
+    const tocEl = document.getElementById(tocId);
+    if (tocEl && t[`toc${i.toString().padStart(2, '0')}`]) {
+      tocEl.textContent = t[`toc${i.toString().padStart(2, '0')}`];
+    }
+  }
 
   let formula = t.formulaText;
   t.formulaHighlights.forEach(kw => {
