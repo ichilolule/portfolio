@@ -26,8 +26,16 @@
   "year": "2026",
   "content_ja": [
     { "type": "heading", "text": "Illustration A" },
+    { "type": "image", "src": "images/yuuki-rui/final-3.webp", "alt": "yuuki様より(キャラクター：ルイ) 完成イラスト" },
+    { "type": "text", "text": "yuuki様より、配信用イラスト2種のご依頼をいただきました。\n\nA：ティーカップを持つポーズ。顔パーツ・腕の差分付き。" },
+    { "type": "image", "src": "images/yuuki-rui/rough-2.webp", "alt": "yuuki様より(キャラクター：ルイ) 大ラフ" },
+    { "type": "text", "text": "大ラフ" },
+    { "type": "image", "src": "images/yuuki-rui/line-2.webp",  "alt": "yuuki様より(キャラクター：ルイ) 清書前ラフ" },
+    { "type": "text", "text": "清書前ラフ" },
+    { "type": "divider" },
+    { "type": "heading", "text": "Illustration B" },
     { "type": "image", "src": "images/yuuki-rui/final-1.webp", "alt": "yuuki様より(キャラクター：ルイ) 完成イラスト" },
-    { "type": "text", "text": "yuuki様より、配信用イラスト2種のご依頼をいただきました。\n\nA：タブレットで作業するポーズ。顔パーツ・腕・目のクマの差分付き。ご指示にはありませんでしたが、お好みをうかがえたので抹茶ゆずソーダを添えました。メガネはおまけです。（趣味）" },
+    { "type": "text", "text": "B：タブレットで作業するポーズ。顔パーツ・腕・目のクマの差分付き。ご指示にはありませんでしたが、お好みをうかがえたので抹茶ゆずソーダを添えました。メガネはおまけです。（趣味）" },
     { "type": "image", "src": "images/yuuki-rui/rough-1.webp", "alt": "yuuki様より(キャラクター：ルイ) 大ラフ" },
     { "type": "text", "text": "大ラフ／リテイク後\n体の向き、表情の変更" },
     { "type": "image-row", "images": [
@@ -35,22 +43,22 @@
       { "src": "images/yuuki-rui/line-1.webp",  "alt": "yuuki様より(キャラクター：ルイ) 清書前ラフ" }
     ]},
     { "type": "text", "text": "差分／清書前ラフ" },
-    { "type": "divider" },
-    { "type": "heading", "text": "Illustration B" },
-    { "type": "image", "src": "images/yuuki-rui/final-3.webp", "alt": "yuuki様より(キャラクター：ルイ) 完成イラスト" },
-    { "type": "text", "text": "B：ティーカップを持つポーズ。顔パーツ・腕の差分付き。" },
-    { "type": "image", "src": "images/yuuki-rui/rough-2.webp", "alt": "yuuki様より(キャラクター：ルイ) 大ラフ" },
-    { "type": "text", "text": "大ラフ" },
-    { "type": "image", "src": "images/yuuki-rui/line-2.webp",  "alt": "yuuki様より(キャラクター：ルイ) 清書前ラフ" },
-    { "type": "text", "text": "清書前ラフ" },
-    { "type": "link", "href": "https://x.com/yuukeyna", "text": "yuuki様（@yuukeyna）" },
+    { "type": "link", "href": "https://x.com/yuukeyna", "text": "yuuki様(@yuukeyna)" },
     { "type": "text", "text": "掲載許可をいただいています。" },
     { "type": "text", "text": "© ichilole / studio mizumochi\n無断転載・AI学習への使用を禁止します。" }
   ],
   "content_en": [
     { "type": "heading", "text": "Illustration A" },
+    { "type": "image", "src": "images/yuuki-rui/final-3.webp", "alt": "yuuki様より(キャラクター：ルイ) — final illustration" },
+    { "type": "text", "text": "Commissioned by yuuki to create two streaming illustrations for their character Rui.\n\nA: Holding a teacup — includes face and arm variations." },
+    { "type": "image", "src": "images/yuuki-rui/rough-2.webp", "alt": "yuuki様より(キャラクター：ルイ) — rough sketch" },
+    { "type": "text", "text": "Rough sketch" },
+    { "type": "image", "src": "images/yuuki-rui/line-2.webp",  "alt": "yuuki様より(キャラクター：ルイ) — line art draft" },
+    { "type": "text", "text": "Line art draft" },
+    { "type": "divider" },
+    { "type": "heading", "text": "Illustration B" },
     { "type": "image", "src": "images/yuuki-rui/final-1.webp", "alt": "yuuki様より(キャラクター：ルイ) — final illustration" },
-    { "type": "text", "text": "Commissioned by yuuki to create two streaming illustrations for their character Rui.\n\nA: Drawing on a tablet — includes alternate face, arm, and eye bag variations. Although it was not included in the original brief, the client shared their preferences with me, so I added a matcha yuzu soda. The glasses are just a bonus. (Personal preference.)" },
+    { "type": "text", "text": "B: Drawing on a tablet — includes alternate face, arm, and eye bag variations. Although it was not included in the original brief, the client shared their preferences with me, so I added a matcha yuzu soda. The glasses are just a bonus. (Personal preference.)" },
     { "type": "image", "src": "images/yuuki-rui/rough-1.webp", "alt": "yuuki様より(キャラクター：ルイ) — rough sketch" },
     { "type": "text", "text": "Rough sketch / After revision\nBody angle and expression adjusted" },
     { "type": "image-row", "images": [
@@ -58,19 +66,12 @@
       { "src": "images/yuuki-rui/line-1.webp",  "alt": "yuuki様より(キャラクター：ルイ) — line art draft" }
     ]},
     { "type": "text", "text": "Variation / Line art draft" },
-    { "type": "divider" },
-    { "type": "heading", "text": "Illustration B" },
-    { "type": "image", "src": "images/yuuki-rui/final-3.webp", "alt": "yuuki様より(キャラクター：ルイ) — final illustration" },
-    { "type": "text", "text": "B: Holding a teacup — includes face and arm variations." },
-    { "type": "image", "src": "images/yuuki-rui/rough-2.webp", "alt": "yuuki様より(キャラクター：ルイ) — rough sketch" },
-    { "type": "text", "text": "Rough sketch" },
-    { "type": "image", "src": "images/yuuki-rui/line-2.webp",  "alt": "yuuki様より(キャラクター：ルイ) — line art draft" },
-    { "type": "text", "text": "Line art draft" },
     { "type": "link", "href": "https://x.com/yuukeyna", "text": "yuuki (@yuukeyna)" },
     { "type": "text", "text": "Published with client permission." },
     { "type": "text", "text": "© ichilole / studio mizumochi\nUnauthorized reproduction and use for AI training are strictly prohibited." }
   ]
 },
+ 
 
 
   {
