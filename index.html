@@ -9,7 +9,8 @@
   ページ基本情報（SEO）
 ============================================================ -->
 <title>ichilole — studio mizumochi</title>
-<meta name="description" content="イラストレーター いちろれ（スタジオ水餅）のポートフォリオサイト。VTuber・配信者キャラクター、企業マスコットなどのイラスト制作">
+<link rel="canonical" href="https://ichilole.com/">
+<meta name="description" content="VTuber・配信者キャラクター・ゆるいマスコットを制作中。北欧風・マット調・ゆるふわ系・両手にハンバーガー系のキャラクターが好きなイラストレーター。">
 
 <!-- ============================================================
   OGP（SNSシェア時のカード表示）
@@ -18,9 +19,9 @@
 ============================================================ -->
 <meta property="og:type"        content="website">
 <meta property="og:title"       content="ichilole — studio mizumochi">
-<meta property="og:description" content="VTuber・配信者キャラクター、企業マスコットなどのイラスト制作">
-<meta property="og:url"         content="https://あなたのサイトURL.netlify.app">
-<meta property="og:image"       content="https://あなたのサイトURL.netlify.app/images/og.png">
+<meta property="og:description" content="北欧風・マット調・ゆるふわ系・両手にハンバーガー系のキャラクターが好きなイラストレーター。">
+<meta property="og:url"   content="https://ichilole.com">
+<meta property="og:image" content="https://ichilole.com/images/og.png">
 <meta name="twitter:card"       content="summary_large_image">
 
 <!-- ============================================================
@@ -150,16 +151,12 @@ nav {
 .nav-mobile-overlay a.active {
   color: var(--brown); border-bottom-color: var(--main);
 }
-.nav-mobile-lang {
-  display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;
-}
-.nav-mobile-lang .lang-btn { color: var(--brown2); border-color: var(--bg3); }
-.nav-mobile-lang .lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
 
 @media (max-width: 640px) {
   nav { padding: 0 1.25rem; }
   .nav-center { display: none; }
-  .nav-lang { display: none; }
+  /* JP/EN ボタンはモバイルでも表示し、ハンバーガーの左に配置 */
+  .nav-lang { margin-left: auto; margin-right: 0.6rem; }
   .nav-burger { display: flex; }
   .portfolio-section { padding: 3.5rem 1.25rem 3rem; }
   .modal { border-radius: 10px; }
@@ -171,74 +168,96 @@ nav {
 
 /* ============================================================
   HOME — ヒーロー
+
+  【設計方針】
+  - 高さは aspect-ratio で幅に比例（16:8.5）
+  - 画面が縦に狭いときは max-height で頭打ち
+  - 帯は bottom: X だけで配置し、高さはコンテンツ任せ
+  - フォントは vw 一本で統一
+  - 800px 以下は高さ・フォントを固定値に切り替え
+
+  【画像】
+  推奨サイズ：1920×1080px 以上
 ============================================================ */
 .hero {
   width: 100%;
-  height: calc(100vh - 56px);
-  height: calc(100dvh - 56px);
   margin-top: 56px;
+  position: relative;
+  overflow: hidden;
   background: var(--bg2);
-  position: relative; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
+
+  /* 幅に対する高さの比率（数値を大きくすると縦長になる）*/
+  aspect-ratio: 1940 / 1185;
+  /* 画面より高くはならない（4vw は画像下の余白）*/
+  max-height: calc(100svh - 56px - 4vw);
 }
 
-/*
-  ▼▼▼ ヒーロー画像の設定方法 ▼▼▼
-
-  方法A：<img>タグ（推奨）
-    .hero-placeholder ブロックをまるごと削除して：
-      <img src="images/hero.png"
-           style="width:100%;height:100%;object-fit:cover;object-position:center top;"
-           alt="ichilole メインビジュアル">
-    を入れる。
-
-  方法B：CSS背景画像
-    .hero に追記：
-      background-image: url('images/hero.jpg');
-      background-size: cover;
-      background-position: center top;
-
-  推奨サイズ：1920×1080px 以上
-*/
-.hero-placeholder {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 1rem; color: var(--brown2); text-align: center;
-}
-.hero-placeholder-box {
-  width: 72px; height: 72px; border-radius: 50%;
-  background: var(--pink-l);
-  display: flex; align-items: center; justify-content: center;
-}
-.hero-placeholder-box svg {
-  width: 32px; height: 32px; fill: none;
-  stroke: var(--pink); stroke-width: 1.5;
-}
-.hero-placeholder-text {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.75rem; font-weight: 600; color: var(--brown2);
-}
-
-.hero-name {
-  position: absolute; bottom: 2rem; left: 2.5rem;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.1em; color: var(--brown);
-}
-
-/* 下向き矢印スクロールインジケーター（文字なし） */
-.hero-scroll-arrow {
-  position: absolute; bottom: 1.8rem; right: 2.5rem;
-  animation: bounceDown 1.8s ease-in-out infinite;
-}
-.hero-scroll-arrow svg {
-  width: 18px; height: 18px; fill: none;
-  stroke: var(--brown2); stroke-width: 2;
+.hero > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
-@keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(5px); }
+
+/* ヒーロー 帯テキストブロック
+   - bottom だけで位置を決め、高さはコンテンツが決める
+   - top を指定しないので画面が縮んでも帯は細くならない */
+.hero-band {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 4vw;
+  background: rgba(250, 246, 242, 0.75);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.55vw;
+  padding: 3vw 1rem;
+}
+.hero-band-studio {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4vw; font-weight: 400;
+  letter-spacing: 0.10em;
+  color: var(--brown); opacity: 0.65;
+}
+.hero-band-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 4.3vw; font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brown); line-height: 1.1;
+  margin-bottom: 0.66vw;
+}
+.hero-band-role {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35vw; font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--brown); opacity: 0.72;
+}
+.hero-band-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.28vw; font-weight: 400;
+  letter-spacing: 0.07em;
+  color: var(--brown); opacity: 0.6;
+}
+
+/* 800px以下：高さ固定・横トリミング・フォント固定 */
+@media (max-width: 800px) {
+  .hero {
+    aspect-ratio: auto;
+    height: 480px;
+    max-height: none;
+  }
+  .hero > img {
+    object-position: 75% center;   /* ← この1行を追加 */
+  }
+  .hero-band {
+    bottom: 30px;
+    gap: 4px;
+    padding: 30px 1rem;
+  }
+  .hero-band-studio { font-size: 0.72rem; }
+  .hero-band-name   { font-size: 2.1rem; margin-bottom: 4px; }
+  .hero-band-role   { font-size: 0.7rem; }
+  .hero-band-tag    { font-size: 0.66rem; }
 }
 
 /* ============================================================
@@ -259,7 +278,7 @@ nav {
 }
 
 /*
-  ▼▼▼ マソンリーグリッドの列数設定 ▼▼▼
+  ↓ マソンリーグリッドの列数設定 ↓
   CSS Grid + JS列振り分け方式。
   列数は画面幅に応じて自動調整（最大5列）。
   ブレークポイントは .masonry-col のJS側で制御。
@@ -291,7 +310,7 @@ nav {
 .m-item:hover .m-overlay { opacity: 1; }
 
 /*
-  ▼▼▼ サムネイル画像の設定方法 ▼▼▼
+  ↓ サムネイル画像の設定方法 ↓
   後述の works 配列の thumb にパスを入れてください
   例: thumb: 'images/works/work01/thumb.jpg'
 */
@@ -477,43 +496,24 @@ footer {
   <a href="/about/" onclick="toggleMenu()">About</a>
   <a href="/contact/" onclick="toggleMenu()">Contact</a>
   <a href="/policy/" onclick="toggleMenu()">Policy</a>
-  <div class="nav-mobile-lang">
-    <button class="lang-btn" id="mob-btn-ja" onclick="setLang('ja'); toggleMenu()">JP</button>
-    <span class="lang-sep">|</span>
-    <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
-  </div>
 </div>
 
 
 <!-- ============================================================
   ヒーロー
+  - 高さは幅に対する比率（aspect-ratio）で自動決定
+  - 画面が縦に狭いときは max-height で頭打ち
+  - 帯は下端だけアンカーし、高さはコンテンツ任せ
 ============================================================ -->
 <div class="hero">
-  <!--
-    ▼▼▼ ここをメインビジュアルに置き換えてください ▼▼▼
+  <img src="images/hero.webp" alt="ichilole メインビジュアル">
 
-    方法A（推奨）：.hero-placeholder をまるごと削除して
-      <img src="images/hero.png"
-           style="width:100%;height:100%;object-fit:cover;object-position:center top;"
-           alt="ichilole メインビジュアル">
-      を入れる。
-
-    方法B：.hero に CSS で
-      background-image: url('images/hero.jpg');
-      background-size: cover;
-      background-position: center top;
-      を追加する。
-
-    推奨サイズ：1920×1080px 以上
-  -->
-<img src="images/hero.webp"
-           style="width:100%;height:100%;object-fit:cover;object-position:center top;"
-           alt="ichilole メインビジュアル">
-
-  <div class="hero-name">ichilole / studio mizumochi</div>
-
-  <div class="hero-scroll-arrow">
-    <svg viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+  <div class="hero-band">
+    <span class="hero-band-studio">Studio Mizumochi</span>
+    <span class="hero-band-name">ichilole</span>
+    <span class="hero-band-role">Character illustrator</span>
+    <span class="hero-band-tag">Nordic-inspired matte illustrations</span>
+    <span class="hero-band-tag">with sweet and silly characters.</span>
   </div>
 </div>
 
@@ -557,7 +557,7 @@ footer {
 
 <script>
 /* ----------------------------------------------------------
-  ▼▼▼ SNSリンクの設定 ▼▼▼
+  ↓ SNSリンクの設定 ↓
   href にURLを入れてください
 ---------------------------------------------------------- */
 const SNS_LINKS = [
@@ -576,7 +576,7 @@ let works = [];
 
 /* ----------------------------------------------------------
   言語テキスト定義
-  ▼▼▼ ここを編集してテキストを変更してください ▼▼▼
+  ↓ ここを編集してテキストを変更してください ↓
 ---------------------------------------------------------- */
 const LANG = {
   ja: {
@@ -601,10 +601,6 @@ function setLang(lang) {
 
   document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  const mobJa = document.getElementById('mob-btn-ja');
-  const mobEn = document.getElementById('mob-btn-en');
-  if (mobJa) mobJa.classList.toggle('active', lang === 'ja');
-  if (mobEn) mobEn.classList.toggle('active', lang === 'en');
 
   document.getElementById('portfolioTitle').textContent      = t.portfolioTitle;
 
@@ -798,16 +794,22 @@ document.getElementById('workModal').addEventListener('click', e => {
 /* ----------------------------------------------------------
   初期化：works.json を読み込んでからサイトを描画
 ---------------------------------------------------------- */
+// まず空の状態でサイトを描画（works.jsonの遅延に関わらず表示を保証）
+setLang(localStorage.getItem('lang') || 'ja');
+
+// works.json を非同期で取得して再描画
 fetch('/works.json')
-  .then(r => r.json())
-  .then(data => {
-    works = data;
-    setLang(localStorage.getItem('lang') || 'ja');
+  .then(r => r.text())
+  .then(text => {
+    try {
+      works = JSON.parse(text);
+      setLang(currentLang);
+    } catch {
+      // JSON以外（HTMLなど）が返った場合は空のまま
+    }
   })
-  .catch(err => {
-    console.error('works.json の読み込みに失敗しました:', err);
-    // JSONが読めなくても残りのUIは表示する
-    setLang(localStorage.getItem('lang') || 'ja');
+  .catch(() => {
+    // ネットワークエラー等は無視して空のまま表示
   });
 
 function toggleMenu() {

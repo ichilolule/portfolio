@@ -6,7 +6,10 @@
 <meta name="color-scheme" content="only light">
 <title>Policy — ichilole</title>
 <meta name="description" content="いちろれ（スタジオ水餅）の料金・ご依頼規約。Pricing and commission terms for ichilole / studio mizumochi.">
-<link rel="icon" href="../images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
@@ -70,7 +73,7 @@ nav {
   transform-origin: center;
 }
 .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* モバイルメニューオーバーレイ */
@@ -99,16 +102,12 @@ nav {
 .nav-mobile-overlay a.active {
   color: var(--brown); border-bottom-color: var(--main);
 }
-.nav-mobile-lang {
-  display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;
-}
-.nav-mobile-lang .lang-btn { color: var(--brown2); border-color: var(--bg3); }
-.nav-mobile-lang .lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
 
 @media (max-width: 640px) {
   nav { padding: 0 1.25rem; }
   .nav-center { display: none; }
-  .nav-lang { display: none; }
+  /* JP/EN ボタンはモバイルでも表示し、ハンバーガーの左に配置 */
+  .nav-lang { margin-left: auto; margin-right: 0.6rem; }
   .nav-burger { display: flex; }
   .outer { padding: 4.5rem 1.25rem 3rem; }
   .plan-cards { grid-template-columns: 1fr; }
@@ -133,7 +132,7 @@ nav {
   color: var(--main); margin-bottom: 0.5rem;
 }
 .page-title {
-  font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 700;
   color: var(--brown); margin-bottom: 0.4rem;
 }
 .page-updated {
@@ -150,7 +149,7 @@ nav {
 }
 
 .p-section-title {
-  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.87rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--main);
   padding-bottom: 0.45rem; margin-bottom: 1.2rem;
@@ -173,7 +172,7 @@ nav {
   padding: 1.4rem 1.6rem; margin-bottom: 1.6rem;
 }
 .formula-label {
-  font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--brown2); margin-bottom: 0.75rem;
 }
@@ -191,7 +190,7 @@ nav {
   font-size: 0.85rem;
 }
 .price-table th {
-  font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--brown2); text-align: left;
   padding: 0.4rem 0.75rem 0.6rem;
@@ -236,7 +235,7 @@ nav {
 /* キャンセルポリシー段階表 */
 .cancel-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 .cancel-table th {
-  font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--brown2); text-align: left;
   padding: 0.4rem 0.75rem 0.6rem;
@@ -259,7 +258,7 @@ nav {
 /* 修正ポリシー表 */
 .revision-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 0.6rem; }
 .revision-table th {
-  font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--brown2); text-align: left;
   padding: 0.4rem 0.75rem 0.6rem;
@@ -292,6 +291,19 @@ footer {
   transition: color 0.15s;
 }
 .footer-sns a:hover { color: var(--bg); }
+
+/* ============================================================
+  見出しハイライト
+============================================================ */
+@keyframes section-flash {
+  0%   { background-color: transparent; }
+  15%  { background-color: color-mix(in srgb, var(--main) 12%, transparent); }
+  100% { background-color: transparent; }
+}
+.p-section.highlight-flash {
+  border-radius: 6px;
+  animation: section-flash 1.6s ease-out forwards;
+}
 
 /* ============================================================
   目次（Table of Contents）
@@ -354,11 +366,6 @@ footer {
   <a href="/about/" onclick="toggleMenu()">About</a>
   <a href="/contact/" onclick="toggleMenu()">Contact</a>
   <a class="active" href="/policy/" onclick="toggleMenu()">Policy</a>
-  <div class="nav-mobile-lang">
-    <button class="lang-btn" id="mob-btn-ja" onclick="setLang('ja'); toggleMenu()">JP</button>
-    <span class="lang-sep">|</span>
-    <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
-  </div>
 </div>
 
 <div class="outer">
@@ -391,7 +398,8 @@ footer {
   <div class="p-section" id="sec-02">
     <div class="p-section-title" id="sec2Title">02. 料金について</div>
 
-    <div class="plan-cards">
+    <!-- プランサマリーカード：非表示中（再表示はここの style="display:none" を削除） -->
+    <div class="plan-cards" style="display:none;">
       <div class="plan-card">
         <div class="plan-card-name" id="plan1Name">SNSアイコン・個人用</div>
         <div class="plan-card-desc" id="plan1Desc">顔のみ・既存キャラ・非商用</div>
@@ -487,12 +495,13 @@ footer {
     <p id="sec6Body1">着手から納品まで最低2週間いただいております。お急ぎの場合はご相談ください（特急料金が発生する場合があります）。</p>
     <p id="sec6Body2">お支払いは希望納期の2週間前までにお願いいたします。お支払い確認後に制作を開始いたします。</p>
     <p id="sec6Body3">なお、確認待ち期間は制作期間に含まれません。</p>
+    <p id="sec6Body4">各工程（ラフ確認等）の送付から3日を超えた場合、遅延した日数分、納期が自動的に後ろ倒しとなります。</p>
   </div>
 
   <!-- 07 -->
   <div class="p-section" id="sec-07">
     <div class="p-section-title" id="sec7Title">07. お支払い</div>
-    <p id="sec7Body1">手数料はご依頼者様のご負担となります。</p>
+    <p id="sec7Body1">手数料はご依頼者様のご負担とさせていただいております。</p>
     <p id="sec7Body2">対応：PayPal（海外・国内、+5%手数料）、銀行振込（国内）、PayPay（国内）、Amazonギフトカード（国内）</p>
   </div>
 
@@ -590,12 +599,12 @@ const LANG = {
     toc02: '02. 料金について',
     toc03: '03. キャンセルポリシー',
     toc04: '04. 著作権・使用権',
-    toc05: '05. 修正について',
+    toc05: '05. 作業工程の詳細・修正',
     toc06: '06. 納期',
     toc07: '07. お支払い',
     sec1Title:  '01. ご依頼について',
     sec1Body1:  'Contactフォーム、XのDMよりお受けしております。内容確認後、見積もりとスケジュールをご連絡いたします。',
-    sec1Body2:  '大ラフ→清書前モノクロラフ→最終確認の各工程でご確認をいただきながら進行いたします。',
+    sec1Body2:  'お見積もり→請求書送付→送金の確認→大ラフ→清書前ラフ→最終確認と進行します。',
     sec2Title:  '02. 料金について',
     formulaLabel: '料金計算式',
     formulaText:  'イラスト料　×　用途・オプション率　+　振込手数料',
@@ -619,13 +628,14 @@ const LANG = {
     sec4Body1b: '使用権はご依頼時に申告された用途に限ります。',
     sec4Body2:  '配信・グッズ販売は規模に関わらず商用利用となります。商用利用・グッズ化をご希望の場合は事前にお申し付けください（別途ライセンス料が発生する場合があります）。',
     sec4Body3:  '二次配布・転売・AI学習への使用は禁止とします。',
-    sec5Title:  '05. 修正について',
+    sec5Title:  '05. 作業工程の詳細・修正',
     sec5Intro:  '修正は2回まで無償で承ります。',
     rth1: '工程', rth2: '修正可能な範囲',
     sec6Title:  '06. 納期',
     sec6Body1:  '着手から納品まで最低2週間いただいております。お急ぎの場合はご相談ください（特急料金が発生する場合があります）。',
     sec6Body2:  'お支払いは希望納期の2週間前までにお願いいたします。お支払い確認後に制作を開始いたします。',
     sec6Body3:  'なお、確認待ち期間は制作期間に含まれません。',
+    sec6Body4:  '各工程（ラフ確認等）の送付から3日を超えた場合、遅延した日数分、納期が自動的に後ろ倒しとなります。',
     sec7Title:  '07. お支払い',
     sec7Body1:  '手数料はご依頼者様のご負担となります。',
     sec7Body2:  '対応：PayPal（海外・国内、+5%手数料）、銀行振込（国内）、PayPay（国内）',
@@ -638,12 +648,12 @@ const LANG = {
     toc02: '02. Pricing',
     toc03: '03. Cancellation Policy',
     toc04: '04. Copyright & Usage Rights',
-    toc05: '05. Revisions',
+    toc05: '05. Workflow & Revisions',
     toc06: '06. Delivery',
     toc07: '07. Payment',
     sec1Title:  '01. About Commissions',
     sec1Body1:  'I accept inquiries via the Contact form or X (Twitter) DM. I will follow up with a quote and schedule after reviewing your request.',
-    sec1Body2:  'Work progresses through three stages: Initial Sketch → Clean Sketch → Final Review.',
+    sec1Body2:  'Work progresses through the following stages: Estimate → Invoice Issued → Payment Confirmation → Initial Sketch → Clean Sketch → Final Review.',
     sec2Title:  '02. Pricing',
     formulaLabel: 'Pricing Formula',
     formulaText:  'Illustration Fee　×　Usage & Option Multiplier　+　Transaction Fee',
@@ -667,16 +677,17 @@ const LANG = {
     sec4Body1b: 'Usage rights are limited to the intended purpose declared at the time of the commission.',
     sec4Body2:  'Streaming and merchandise sales are considered commercial use regardless of scale. Please inform me in advance if you intend to use the artwork commercially (additional licensing fees may apply).',
     sec4Body3:  'Redistribution, resale, and use for AI training are strictly prohibited.',
-    sec5Title:  '05. Revisions',
+    sec5Title:  '05. Workflow & Revisions',
     sec5Intro:  'Up to 2 revisions are included at no extra charge.',
     rth1: 'Stage', rth2: 'Scope of Revisions',
     sec6Title:  '06. Delivery',
     sec6Body1:  'Please allow at least 2 weeks from the start date. Rush orders are available upon request (rush fee may apply).',
     sec6Body2:  'Payment must be completed at least 2 weeks before your desired delivery date. Work begins after payment is confirmed.',
     sec6Body3:  'Please note that time spent waiting for your feedback is not included in the production period.',
+    sec6Body4:  'If a response to any stage (e.g., sketch review) takes more than 72 hours, the final deadline will be extended accordingly by the number of days delayed.',
     sec7Title:  '07. Payment',
     sec7Body1:  'All transaction fees are the responsibility of the client.',
-    sec7Body2:  'Available: PayPal (international / domestic, +5% fee), Bank Transfer (Japan), PayPay (Japan)',
+    sec7Body2:  'Available: PayPal (international / domestic, +5% fee), Bank Transfer (Japan only), PayPay (Japan only)',
   },
 };
 
@@ -735,10 +746,6 @@ function setLang(lang) {
 
   document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  const mobJa = document.getElementById('mob-btn-ja');
-  const mobEn = document.getElementById('mob-btn-en');
-  if (mobJa) mobJa.classList.toggle('active', lang === 'ja');
-  if (mobEn) mobEn.classList.toggle('active', lang === 'en');
 
   const ids = [
     'pageTitle','pageUpdated','tocTitle',
@@ -748,7 +755,7 @@ function setLang(lang) {
     'sec3Title','cth1','cth2','sec3Note1','sec3Note2','sec3Note3',
     'sec4Title','sec4Body1','sec4Body1b','sec4Body2','sec4Body3',
     'sec5Title','sec5Intro','rth1','rth2',
-    'sec6Title','sec6Body1','sec6Body2','sec6Body3',
+    'sec6Title','sec6Body1','sec6Body2','sec6Body3','sec6Body4',
     'sec7Title','sec7Body1','sec7Body2',
   ];
   ids.forEach(id => {
@@ -840,6 +847,23 @@ document.getElementById('navOverlay').addEventListener('click', function(e) {
   if (e.target === this) toggleMenu();
 });
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ----------------------------------------------------------
+  目次クリック時の見出しハイライト
+---------------------------------------------------------- */
+document.querySelectorAll('.toc-list a[href^="#"]').forEach(link => {
+  link.addEventListener('click', () => {
+    const targetId = link.getAttribute('href').slice(1);
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    target.classList.remove('highlight-flash');
+    void target.offsetWidth; // reflow to restart animation
+    target.classList.add('highlight-flash');
+    target.addEventListener('animationend', () => {
+      target.classList.remove('highlight-flash');
+    }, { once: true });
+  });
+});
 </script>
 </body>
 </html>

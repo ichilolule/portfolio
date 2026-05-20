@@ -6,7 +6,10 @@
 <meta name="color-scheme" content="only light">
 <title>Contact — ichilole</title>
 <meta name="description" content="いちろれ（スタジオ水餅）へのイラスト依頼・お問い合わせ。Commission inquiries for ichilole / studio mizumochi.">
-<link rel="icon" href="../images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
@@ -90,14 +93,12 @@ nav {
 }
 .nav-mobile-overlay a:hover { color: var(--main); }
 .nav-mobile-overlay a.active { color: var(--brown); border-bottom-color: var(--main); }
-.nav-mobile-lang { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
-.nav-mobile-lang .lang-btn { color: var(--brown2); border-color: var(--bg3); }
-.nav-mobile-lang .lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
 
 @media (max-width: 640px) {
   nav { padding: 0 1.25rem; }
   .nav-center { display: none; }
-  .nav-lang { display: none; }
+  /* JP/EN ボタンはモバイルでも表示し、ハンバーガーの左に配置 */
+  .nav-lang { margin-left: auto; margin-right: 0.6rem; }
   .nav-burger { display: flex; }
   .outer { padding: 4.5rem 1.25rem 3rem; }
 }
@@ -117,7 +118,7 @@ nav {
   color: var(--brown); margin-bottom: 0.8rem;
 }
 .intro {
-  font-size: 0.88rem; color: var(--brown2);
+  font-size: 0.87rem; color: var(--brown2);
   line-height: 1.85; margin-bottom: 2.5rem;
 }
 .intro a {
@@ -132,7 +133,7 @@ nav {
   margin-bottom: 2.5rem;
 }
 .price-summary-label {
-  font-family: 'Outfit', sans-serif; font-size: 0.58rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--brown2); margin-bottom: 0.9rem;
 }
@@ -140,7 +141,7 @@ nav {
 .price-row {
   display: flex; align-items: baseline;
   justify-content: space-between; gap: 1rem;
-  font-size: 0.83rem;
+  font-size: 0.87rem;
 }
 .price-row-item { color: var(--brown); }
 .price-row-dots {
@@ -161,7 +162,7 @@ nav {
 
 /* 依頼方法カード */
 .method-section-title {
-  font-family: 'Outfit', sans-serif; font-size: 0.63rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--main);
   padding-bottom: 0.45rem; margin-bottom: 1.2rem;
@@ -194,7 +195,7 @@ nav {
 
 .method-card-body { flex: 1; min-width: 0; }
 .method-card-name {
-  font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.87rem; font-weight: 700;
   color: var(--brown); margin-bottom: 0.2rem;
   display: flex; align-items: center; gap: 0.5rem;
 }
@@ -275,11 +276,6 @@ footer {
   <a href="/about/" onclick="toggleMenu()">About</a>
   <a class="active" href="/contact/" onclick="toggleMenu()">Contact</a>
   <a href="/policy/" onclick="toggleMenu()">Policy</a>
-  <div class="nav-mobile-lang">
-    <button class="lang-btn" id="mob-btn-ja" onclick="setLang('ja'); toggleMenu()">JP</button>
-    <span class="lang-sep">|</span>
-    <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
-  </div>
 </div>
 
 <div class="outer">
@@ -432,10 +428,6 @@ function setLang(lang) {
 
   document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  const mobJa = document.getElementById('mob-btn-ja');
-  const mobEn = document.getElementById('mob-btn-en');
-  if (mobJa) mobJa.classList.toggle('active', lang === 'ja');
-  if (mobEn) mobEn.classList.toggle('active', lang === 'en');
 
   const htmlIds = ['introText', 'priceNote'];
   const textIds = [

@@ -6,7 +6,10 @@
 <meta name="color-scheme" content="only light">
 <title>About — ichilole</title>
 <meta name="description" content="いちろれ（スタジオ水餅）のプロフィール。VTuber・配信者キャラクター、企業マスコットなどのイラスト制作を承っております。">
-<link rel="icon" href="../images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
@@ -101,16 +104,12 @@ nav {
 .nav-mobile-overlay a.active {
   color: var(--brown); border-bottom-color: var(--main);
 }
-.nav-mobile-lang {
-  display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;
-}
-.nav-mobile-lang .lang-btn { color: var(--brown2); border-color: var(--bg3); }
-.nav-mobile-lang .lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
 
 @media (max-width: 640px) {
   nav { padding: 0 1.25rem; }
   .nav-center { display: none; }
-  .nav-lang { display: none; }
+  /* JP/EN ボタンはモバイルでも表示し、ハンバーガーの左に配置 */
+  .nav-lang { margin-left: auto; margin-right: 0.6rem; }
   .nav-burger { display: flex; }
   .outer { padding: 4.5rem 1.25rem 3rem; }
   .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
@@ -192,7 +191,7 @@ nav {
 .about-catch strong {
   display: block;
   font-family: 'Outfit', sans-serif;
-  font-size: 0.68rem; font-weight: 700;
+  font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--main);
   margin-bottom: 0.65rem;
@@ -206,7 +205,7 @@ nav {
   gap: 3rem; margin-bottom: 2.5rem;
 }
 .about-block-title {
-  font-family: 'Outfit', sans-serif; font-size: 0.63rem; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--main); margin-bottom: 1.1rem;
   padding-bottom: 0.4rem; border-bottom: 1px solid var(--bg3);
@@ -290,11 +289,6 @@ footer {
   <a class="active" href="/about/" onclick="toggleMenu()">About</a>
   <a href="/contact/" onclick="toggleMenu()">Contact</a>
   <a href="/policy/" onclick="toggleMenu()">Policy</a>
-  <div class="nav-mobile-lang">
-    <button class="lang-btn" id="mob-btn-ja" onclick="setLang('ja'); toggleMenu()">JP</button>
-    <span class="lang-sep">|</span>
-    <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
-  </div>
 </div>
 
 <div class="outer">
@@ -406,8 +400,8 @@ const LANG = {
     aboutCatch:
       '<strong>VTuber / 北欧風 / マット調 / 2頭身〜6頭身 / デカ目</strong>' +
       '配信者のキャラクターイラストや企業マスコットイラストなどを制作しています。<br>' +
-      'なんかあほっぽい（※あほではない）キャラクターが好き。<br>' +
-      'ゆるふわ系、天然、ポンコツクール、丸めがね、変顔、爆食い、両手にハンバーガー、食欲の化身、大食い選手権1位、柴犬、頬袋がパンパンのハンマーヘッドシャークみたいになってるハムスター',
+      'なんかあほっぽい（※あほではない）記号性を持つキャラクターが好き。<br>' +
+      'ポンコツクール、丸めがね、変顔、爆食い、両手にハンバーガー、食欲の化身、ゆるふわ系、天然、大食い選手権1位、柴犬、頬袋がパンパンのハムスターなど',
     toolsLabel:   '使用ツール',
     envLabel:     '作業環境・資格',
     snsLabel:     'SNS・リンク',
@@ -441,10 +435,6 @@ function setLang(lang) {
 
   document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  const mobJa = document.getElementById('mob-btn-ja');
-  const mobEn = document.getElementById('mob-btn-en');
-  if (mobJa) mobJa.classList.toggle('active', lang === 'ja');
-  if (mobEn) mobEn.classList.toggle('active', lang === 'en');
 
   document.getElementById('aboutCatch').innerHTML          = t.aboutCatch;
   document.getElementById('toolsLabel').textContent        = t.toolsLabel;

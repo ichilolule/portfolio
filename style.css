@@ -1,3 +1,7 @@
+html {
+  font-size: 112.5%; /* 18px base — rem値を全体的にスケールアップ */
+}
+
 :root {
   --bg:      #F6EFE8;   /* カード背景・区切り（ベージュ明） */
   --bg2:     #EADED3;   /* ページ背景（ベージュ中） */
@@ -8,4 +12,60 @@
   --main-d:  #A86858;   /* オレンジホバー */
   --pink-l:  #ede2de;   /* くすみピンク（アイコン背景・タグ） */
   --blue-l:  #e4e6e5;   /* くすみブルー（アイコン背景・タグ） */
+
+  /* 大正ロマンカラーパレット */
+  --ivory:   #F3E8D7;
+  --olive:   #7B8064;
+  --olive-l: #97A08A;
+  --teal:    #6F8B83;
+  --gold:    #C5A46D;
+  --grape:   #6D4C57;
+  --gray:    #8A817C;
+  --sakura:  #D8C6C0;
+  --indigo:  #5F6C77;
+
+
+  /*チョコミント派閥*/
+   /* ベース */
+  --mint-cream:   #e2ebe6;
+  --milk:         #f7f3ee;
+  --vanilla:      #efe3d3;
+  --cookie:       #d8c3b1;
+
+  /* ブラウン */
+  --cocoa:        #714944;
+  --bitter:       #5c3f3b;
+  --mocha:        #8a655c;
+  --coffee:       #4a342f;
+
+  /* ミント〜緑 */
+  --mint:         #bfd8cc;
+  --mint-dark:    #8ca89b;
+  --sage:         #a8b2a1;
+  --olive-milk:   #b7b59f;
+  --pistachio:    #cad8b6;
+
+  /* ブルー系 */
+  --ice-blue:     #d8e5e8;
+  --smoke-blue:   #9aa9b2;
+  --dusty-teal:   #6f8b83;
+
+  /* ピンク系 */
+  --strawberry:   #d8b7b0;
+  --rose-milk:    #ead7d2;
+  --mauve:        #9b7f88;
+
+  /* 黄色〜オレンジ */
+  --honey:        #d6b47a;
+  --caramel:      #b9875b;
+  --apricot:      #d9aa8f;
+
+  /* 赤紫 */
+  --berry:        #7c5a63;
+  --plum:         #5f4754;
+
+  /* グレー */
+  --fog:          #c7c2bc;
+  --stone:        #8b8681;
+  --charcoal:     #5e5a57;
 }

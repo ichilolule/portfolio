@@ -1,5 +1,9 @@
 [
 
+
+
+
+
   {
   "title": "【創作】moca（仮）",
   "content_ja": [
@@ -17,6 +21,58 @@
 },
 
 
+{
+  "title": "yuuki様より(キャラクター：ルイ)",
+  "year": "2026",
+  "content_ja": [
+    { "type": "heading", "text": "Illustration A" },
+    { "type": "image", "src": "images/yuuki-rui/final-1.webp", "alt": "yuuki様より(キャラクター：ルイ) 完成イラスト" },
+    { "type": "text", "text": "yuuki様より、配信用イラスト2種のご依頼をいただきました。\n\nA：タブレットで作業するポーズ。顔パーツ・腕・目のクマの差分付き。ご指示にはありませんでしたが、お好みをうかがえたので抹茶ゆずソーダを添えました。メガネはおまけです。（趣味）" },
+    { "type": "image", "src": "images/yuuki-rui/rough-1.webp", "alt": "yuuki様より(キャラクター：ルイ) 大ラフ" },
+    { "type": "text", "text": "大ラフ／リテイク後\n体の向き、表情の変更" },
+    { "type": "image-row", "images": [
+      { "src": "images/yuuki-rui/final-2.webp", "alt": "yuuki様より(キャラクター：ルイ) 完成イラスト" },
+      { "src": "images/yuuki-rui/line-1.webp",  "alt": "yuuki様より(キャラクター：ルイ) 清書前ラフ" }
+    ]},
+    { "type": "text", "text": "差分／清書前ラフ" },
+    { "type": "divider" },
+    { "type": "heading", "text": "Illustration B" },
+    { "type": "image", "src": "images/yuuki-rui/final-3.webp", "alt": "yuuki様より(キャラクター：ルイ) 完成イラスト" },
+    { "type": "text", "text": "B：ティーカップを持つポーズ。顔パーツ・腕の差分付き。" },
+    { "type": "image", "src": "images/yuuki-rui/rough-2.webp", "alt": "yuuki様より(キャラクター：ルイ) 大ラフ" },
+    { "type": "text", "text": "大ラフ" },
+    { "type": "image", "src": "images/yuuki-rui/line-2.webp",  "alt": "yuuki様より(キャラクター：ルイ) 清書前ラフ" },
+    { "type": "text", "text": "清書前ラフ" },
+    { "type": "link", "href": "https://x.com/yuukeyna", "text": "yuuki様（@yuukeyna）" },
+    { "type": "text", "text": "掲載許可をいただいています。" },
+    { "type": "text", "text": "© ichilole / studio mizumochi\n無断転載・AI学習への使用を禁止します。" }
+  ],
+  "content_en": [
+    { "type": "heading", "text": "Illustration A" },
+    { "type": "image", "src": "images/yuuki-rui/final-1.webp", "alt": "yuuki様より(キャラクター：ルイ) — final illustration" },
+    { "type": "text", "text": "Commissioned by yuuki to create two streaming illustrations for their character Rui.\n\nA: Drawing on a tablet — includes alternate face, arm, and eye bag variations. Although it was not included in the original brief, the client shared their preferences with me, so I added a matcha yuzu soda. The glasses are just a bonus. (Personal preference.)" },
+    { "type": "image", "src": "images/yuuki-rui/rough-1.webp", "alt": "yuuki様より(キャラクター：ルイ) — rough sketch" },
+    { "type": "text", "text": "Rough sketch / After revision\nBody angle and expression adjusted" },
+    { "type": "image-row", "images": [
+      { "src": "images/yuuki-rui/final-2.webp", "alt": "yuuki様より(キャラクター：ルイ) — final illustration" },
+      { "src": "images/yuuki-rui/line-1.webp",  "alt": "yuuki様より(キャラクター：ルイ) — line art draft" }
+    ]},
+    { "type": "text", "text": "Variation / Line art draft" },
+    { "type": "divider" },
+    { "type": "heading", "text": "Illustration B" },
+    { "type": "image", "src": "images/yuuki-rui/final-3.webp", "alt": "yuuki様より(キャラクター：ルイ) — final illustration" },
+    { "type": "text", "text": "B: Holding a teacup — includes face and arm variations." },
+    { "type": "image", "src": "images/yuuki-rui/rough-2.webp", "alt": "yuuki様より(キャラクター：ルイ) — rough sketch" },
+    { "type": "text", "text": "Rough sketch" },
+    { "type": "image", "src": "images/yuuki-rui/line-2.webp",  "alt": "yuuki様より(キャラクター：ルイ) — line art draft" },
+    { "type": "text", "text": "Line art draft" },
+    { "type": "link", "href": "https://x.com/yuukeyna", "text": "yuuki (@yuukeyna)" },
+    { "type": "text", "text": "Published with client permission." },
+    { "type": "text", "text": "© ichilole / studio mizumochi\nUnauthorized reproduction and use for AI training are strictly prohibited." }
+  ]
+},
+
+
   {
   "title": "【創作】へんないきもの（9枚）",
   "thumb": "images/small/kurage.jpg",
@@ -30,7 +86,7 @@
     { "type": "image", "src": "images/small/obake.jpg", "alt": "へんないきもの オバケ" },
     { "type": "image", "src": "images/small/hampter.jpg", "alt": "へんないきもの ハムスター" },
     { "type": "image", "src": "images/small/beriko.jpg", "alt": "へんないきもの ベリコ" },
-    { "type": "link", "href": "https://store.line.me/stickershop/product/27486851/ja", "text": "LINE STOREで見る" }
+    { "type": "link", "href": "https://store.line.me/stickershop/product/27486851/ja", "text": "LINE STORE（コズミックガール☆ベリ子）" }
   ],
   "content_en": [
     { "type": "image", "src": "images/small/kurage.jpg", "alt": "Weird Creatures — Jellyfish" },
@@ -48,48 +104,77 @@
 
 
 
-  {
+{
   "title": "Gariba様より4周年記念イラスト",
   "year": "2026",
   "content_ja": [
-    { "type": "image", "src": "images/Gariba.webp", "alt": "Gariba様4周年記念イラスト 完成" },
+    { "type": "image", "src": "images/gariba-4th-anniversary/final.webp", "alt": "Gariba様より4周年記念イラスト 完成イラスト" },
     { "type": "heading", "text": "About this work" },
-    { "type": "text", "text": "【お仕事】\nGariba様より4周年記念イラストのご依頼をいただきました。\n\n★ご依頼内容\nテーマ：4周年記念イラスト\nモチーフ：4を持ち上げる4人の衣装違いキャラクター（SD）\n\nめでたい雰囲気を出すために、シチュエーションを部屋の飾り付け中に設定しました。\n全員同じキャラクターではありますが、単調さを消すために表情と動き、顔の向きなどが被らないような配置を目指しています。" },
-    { "type": "link", "href": "https://x.com/Gariba_ribariba/status/2027964797845696995", "text": "Gariba様：X (Twitter)" },
-    { "type": "image", "src": "images/Gariba_line.jpg", "alt": "Gariba様4周年記念イラスト 線画" }
+    { "type": "text", "text": "Gariba様より4周年記念イラストのご依頼をいただきました。ご指定は「4を持ち上げる4人の衣装違いキャラクター（SD）」。めでたい雰囲気を出すために、シチュエーションを部屋の飾り付け中に設定しました。全員同じキャラクターですが、単調さを消すために表情と動き、顔の向きなどが被らないようにしています。" },
+    { "type": "link", "href": "https://x.com/Gariba_ribariba/status/2027964797845696995", "text": "Gariba様のポスト" },
+    { "type": "divider" },
+    { "type": "heading", "text": "Process" },
+    { "type": "image-row", "images": [
+      { "src": "images/gariba-4th-anniversary/rough.webp", "alt": "Gariba様より4周年記念イラスト 大ラフ" },
+      { "src": "images/gariba-4th-anniversary/line.webp",  "alt": "Gariba様より4周年記念イラスト 清書前ラフ" }
+    ]},
+    { "type": "text", "text": "大ラフ／清書前ラフ" },
+    { "type": "text", "text": "掲載許可をいただいています。" },
+    { "type": "text", "text": "© ichilole / studio mizumochi\n無断転載・AI学習への使用を禁止します。" }
   ],
   "content_en": [
-    { "type": "image", "src": "images/Gariba.webp", "alt": "Gariba 4th anniversary illustration — final" },
+    { "type": "image", "src": "images/gariba-4th-anniversary/final.webp", "alt": "Gariba 4th anniversary illustration — final illustration" },
     { "type": "heading", "text": "About this work" },
-    { "type": "text", "text": "[Commissioned Work]\nIllustrated a 4th anniversary piece for Gariba.\n\n★ Details\nTheme: 4th anniversary illustration\nConcept: Four versions of the same character in different outfits, each holding up the number \"4\" (chibi style)\n\nTo capture a celebratory mood, the scene is set during room decoration.\nAlthough all four are the same character, care was taken to vary their expressions, poses, and directions to avoid a repetitive feel." },
-    { "type": "link", "href": "https://x.com/Gariba_ribariba/status/2027964797845696995", "text": "Gariba：X (Twitter)" },
-    { "type": "image", "src": "images/Gariba_line.jpg", "alt": "Gariba 4th anniversary illustration — line art" }
+    { "type": "text", "text": "I was commissioned by Gariba to create a 4th anniversary illustration. The concept features four chibi-style versions of the same character in different outfits, all lifting the number \"4.\" To bring out a celebratory atmosphere, I set the scene mid-decoration. Although all four characters share the same design, I varied their expressions, poses, and facing directions to keep the composition from feeling monotonous." },
+    { "type": "link", "href": "https://x.com/Gariba_ribariba/status/2027964797845696995", "text": "Gariba's post" },
+    { "type": "divider" },
+    { "type": "heading", "text": "Process" },
+    { "type": "image-row", "images": [
+      { "src": "images/gariba-4th-anniversary/rough.webp", "alt": "Gariba 4th anniversary illustration — rough sketch" },
+      { "src": "images/gariba-4th-anniversary/line.webp",  "alt": "Gariba 4th anniversary illustration — line art draft" }
+    ]},
+    { "type": "text", "text": "Rough sketch / Line art draft" },
+    { "type": "text", "text": "Published with client permission." },
+    { "type": "text", "text": "© ichilole / studio mizumochi\nUnauthorized reproduction and use for AI training are strictly prohibited." }
   ]
 },
 
-  {
+{
   "title": "EaglePalette様　マスコットキャラクター",
+  "year": "2026",
   "content_ja": [
-    { "type": "image", "src": "images/eag/original.png", "alt": "EaglePalette マスコットキャラクター メインイラスト" },
-    { "type": "text", "text": "EaglePalette様よりご依頼いただいたマスコットキャラクターです。" },
+    { "type": "image", "src": "images/eaglepalette-mascot/final-1.webp", "alt": "EaglePalette様　マスコットキャラクター 完成イラスト" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "EaglePalette様よりご依頼いただいたマスコットキャラクターです。ブランドモチーフ（鷲＋パレット）をデフォルメしたデザインで、親子向けファッションブランドを想定したシンプルでラフな仕上がりを目指しました。" },
+    { "type": "link", "href": "https://shop.eagle-pallet.com", "text": "EaglePaletteショップ" },
+    { "type": "divider" },
+    { "type": "heading", "text": "Process" },
     { "type": "image-row", "images": [
-      { "src": "images/eag/monoc.png", "alt": "EaglePalette マスコット モノクロ版" },
-      { "src": "images/eag/1.webp", "alt": "EaglePalette マスコット バリエーション1" }
+      { "src": "images/eaglepalette-mascot/rough.webp", "alt": "EaglePalette様　マスコットキャラクター 大ラフ" },
+      { "src": "images/eaglepalette-mascot/line.webp",  "alt": "EaglePalette様　マスコットキャラクター 清書前ラフ" }
     ]},
-    { "type": "heading", "text": "Commission Details" },
-    { "type": "text", "text": "★ご依頼内容\nコンセプト：ブランドモチーフ（鷲＋パレット）のデフォルメ\nターゲット：親子向けファッションブランド\nモチーフ：シンプル、ラフ、企業ロゴを入れる\n\n鷲はかっこいいイラストで描かれることが多いのですが、親子向けブランドらしく丸くて優しい雰囲気を目指しました。Tシャツやwebページ用に使うとのことでしたので、透過PNG（黒のみ）のモノクロも添付しています。" },
-    { "type": "link", "href": "https://shop.eagle-pallet.com/", "text": "EaglePalette" }
+    { "type": "text", "text": "大ラフ／清書前ラフ" },
+    { "type": "text", "text": "鷲はかっこいいイラストで描かれることが多いのですが、親子向けブランドらしく丸くて優しい雰囲気を目指しました。Tシャツやwebページ用に使うとのことでしたので、透過PNG（黒のみ）のモノクロも添付しています。" },
+    { "type": "image", "src": "images/eaglepalette-mascot/final-2.webp", "alt": "EaglePalette様　マスコットキャラクター 差分" },
+    { "type": "text", "text": "掲載許可をいただいています。" },
+    { "type": "text", "text": "© ichilole / studio mizumochi\n無断転載・AI学習への使用を禁止します。" }
   ],
   "content_en": [
-    { "type": "image", "src": "images/eag/original.png", "alt": "EaglePalette mascot character — main illustration" },
-    { "type": "text", "text": "A mascot character created for EaglePalette." },
+    { "type": "image", "src": "images/eaglepalette-mascot/final-1.webp", "alt": "EaglePalette mascot character — final illustration" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "A mascot character created for EaglePalette. The design is a chibi-style take on the brand motif (eagle + palette), crafted with a simple, casual feel suited to a family-oriented fashion brand." },
+    { "type": "link", "href": "https://shop.eagle-pallet.com", "text": "EaglePalette Shop" },
+    { "type": "divider" },
+    { "type": "heading", "text": "Process" },
     { "type": "image-row", "images": [
-      { "src": "images/eag/monoc.png", "alt": "EaglePalette mascot — monochrome version" },
-      { "src": "images/eag/1.webp", "alt": "EaglePalette mascot — variation 1" }
+      { "src": "images/eaglepalette-mascot/rough.webp", "alt": "EaglePalette mascot character — rough sketch" },
+      { "src": "images/eaglepalette-mascot/line.webp",  "alt": "EaglePalette mascot character — line art draft" }
     ]},
-    { "type": "heading", "text": "Commission Details" },
-    { "type": "text", "text": "★Commission Details\nConcept: Chibi-style design based on the brand motifs (eagle + palette)\nTarget: Family-oriented fashion brand\nStyle: Simple, casual, with company logo incorporated\n\nEagles are often depicted in bold, striking styles, but I aimed for a round, gentle look fitting for a family-oriented brand. Since the artwork would be used on T-shirts and web pages, I also provided a monochrome transparent PNG in black." },
-    { "type": "link", "href": "https://shop.eagle-pallet.com/", "text": "EaglePalette" }
+    { "type": "text", "text": "Rough sketch / Line art draft" },
+    { "type": "text", "text": "Eagles are often depicted in cool, dynamic illustrations, but I aimed for a round, gentle look better suited to a brand for parents and children. Since the artwork would be used on T-shirts and web pages, I also provided a monochrome version as a transparent PNG (black only)." },
+    { "type": "image", "src": "images/eaglepalette-mascot/final-2.webp", "alt": "EaglePalette mascot character — variation" },
+    { "type": "text", "text": "Published with client permission." },
+    { "type": "text", "text": "© ichilole / studio mizumochi\nUnauthorized reproduction and use for AI training are strictly prohibited." }
   ]
 },
 
@@ -97,29 +182,15 @@
 {
   "title": "寿司",
   "content_ja": [
-    { "type": "image", "src": "images/magro.jpg", "alt": "超デカまぐろ イラスト" },
+    { "type": "image", "src": "images/magro.webp", "alt": "超デカまぐろ イラスト" },
     { "type": "text", "text": "★こだわりポイント\n・一貫がデカい\n・執拗なわさび\n・箸置きが理論上最悪の形状をしている" }
   ],
   "content_en": [
-    { "type": "image", "src": "images/magro.jpg", "alt": "Super Giant Tuna — illustration" },
+    { "type": "image", "src": "images/magro.webp", "alt": "Super Giant Tuna — illustration" },
     { "type": "text", "text": "★Points of Pride\n・Each piece is enormous\n・An unreasonable amount of wasabi\n・The chopstick rest is theoretically the worst possible shape" }
   ]
 },
-  {
-  "title": "【創作】ぽゆぽゆおいも星スタンプ",
-  "content_ja": [
-    { "type": "image", "src": "images/poyu.webp", "alt": "ぽゆぽゆおいも星スタンプ イラスト1" },
-    { "type": "image", "src": "images/poyu2.jpg", "alt": "ぽゆぽゆおいも星スタンプ イラスト2" },
-    { "type": "text", "text": "野菜モチーフのもちもちしてる生物です。人間の真似をしてリボンが生えたり、4次元的な変形をしたり、地球にあるものに擬態します。" },
-    { "type": "link", "href": "https://store.line.me/stickershop/product/18458123/ja", "text": "LINE STOREで見る" }
-  ],
-  "content_en": [
-    { "type": "image", "src": "images/poyu.webp", "alt": "Poyu-Poyu Oimo-Hoshi Stickers — illustration 1" },
-    { "type": "image", "src": "images/poyu2.jpg", "alt": "Poyu-Poyu Oimo-Hoshi Stickers — illustration 2" },
-    { "type": "text", "text": "Squishy little creatures inspired by vegetables. They mimic humans by sprouting ribbons, contorting in four-dimensional ways, and disguising themselves as things found on Earth." },
-    { "type": "link", "href": "https://store.line.me/stickershop/product/18458123/ja", "text": "View on LINE STORE" }
-  ]
-},
+
 
 
   {
@@ -127,7 +198,7 @@
   "content_ja": [
     { "type": "image", "src": "images/wata.webp", "alt": "綿積コットン（わた子）完成イラスト" },
     { "type": "image", "src": "images/wata2.webp", "alt": "綿積コットン（わた子）イラスト2" },
-    { "type": "text", "text": "お掃除係なのに、自分の名前が一番ほこりを撒き散らしそうなのを気にしている。" }
+    { "type": "text", "text": "お掃除係なのに自分の名前が一番ほこりを撒き散らしそうなのを気にしている。" }
   ],
   "content_en": [
     { "type": "image", "src": "images/wata.webp", "alt": "Cotton Watazumi (Wata-ko) — final illustration" },
@@ -136,24 +207,67 @@
   ]
 },
 
-  {
+{
   "title": "【Skeb】星白真命様より",
   "content_ja": [
     { "type": "image", "src": "images/zheng.webp", "alt": "【Skeb】星白真命様より 完成イラスト" },
     { "type": "heading", "text": "About this work" },
     { "type": "text", "text": "ご依頼内容：私服衣装のデザイン" },
-    { "type": "link", "href": "https://x.com/HoshiroMamori", "text": "星白真命(@HoshiroMamori)" }
+    { "type": "link", "href": "https://x.com/HoshiroMamori", "text": "星白真命(@HoshiroMamori)" },
+    { "type": "text", "text": "© ichilole / studio mizumochi\n無断転載・AI学習への使用を禁止します。" }
   ],
   "content_en": [
     { "type": "image", "src": "images/zheng.webp", "alt": "Final illustration" },
     { "type": "heading", "text": "About this work" },
     { "type": "text", "text": "Commission request: Casual outfit design." },
-    { "type": "link", "href": "https://x.com/HoshiroMamori", "text": "Hoshiro Mamori (@HoshiroMamori)" }
+    { "type": "link", "href": "https://x.com/HoshiroMamori", "text": "Hoshiro Mamori (@HoshiroMamori)" },
+    { "type": "text", "text": "© ichilole / studio mizumochi\nUnauthorized reproduction and use for AI training are strictly prohibited." }
+  ]
+},
+
+{
+  "title": "馬車道はげみ様　「アキハバラツアー　謎解きの街と地球滅亡！？」イラスト",
+  "year": "2025",
+  "content_ja": [
+    { "type": "image", "src": "images/bashamichi-akihabara.webp", "alt": "馬車道はげみ様「アキハバラツアー　謎解きの街と地球滅亡！？」イラスト 完成イラスト" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "謎解きイベント用のキービジュアルです。" },
+    { "type": "divider" },
+    { "type": "heading", "text": "Process" },
+    { "type": "image", "src": "images/bashamichi-akihabara-line.webp", "alt": "馬車道はげみ様「アキハバラツアー　謎解きの街と地球滅亡！？」イラスト 清書前ラフ" },
+    { "type": "text", "text": "謎解き・ツアー・大正ロマン風の雰囲気を組み合わせたビジュアルで制作しています。ご要望をいただき、持ち物を「旗」に変更しました。" },
+    { "type": "link", "href": "https://x.com/Bashamichi_H/status/1977332142108725678", "text": "馬車道はげみ(@Bashamichi_H)" },
+    { "type": "text", "text": "掲載許可をいただいています。" },
+    { "type": "text", "text": "© ichilole / studio mizumochi\n無断転載・AI学習への使用を禁止します。" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/bashamichi-akihabara.webp", "alt": "Bashamichi Hagemi — Akihabara Tour illustration — final illustration" },
+    { "type": "heading", "text": "About this work" },
+    { "type": "text", "text": "Key visual for a mystery event." },
+    { "type": "divider" },
+    { "type": "heading", "text": "Process" },
+    { "type": "image", "src": "images/bashamichi-akihabara-line.webp", "alt": "Bashamichi Hagemi — Akihabara Tour illustration — line art draft" },
+    { "type": "text", "text": "The piece combines the atmosphere of mystery-solving, touring, and Taisho romance aesthetics. Per the client's request, the prop was changed to a flag." },
+    { "type": "link", "href": "https://x.com/Bashamichi_H/status/1977332142108725678", "text": "Bashamichi Hagemi (@Bashamichi_H)" },
+    { "type": "text", "text": "Published with client permission." },
+    { "type": "text", "text": "© ichilole / studio mizumochi\nUnauthorized reproduction and use for AI training are strictly prohibited." }
   ]
 },
 
 
-
+  {
+  "title": "【創作】ぽゆぽゆおいも星スタンプ",
+  "content_ja": [
+    { "type": "image", "src": "images/poyu.webp", "alt": "ぽゆぽゆおいも星スタンプ イラスト1" },
+    { "type": "image", "src": "images/poyu2.webp", "alt": "ぽゆぽゆおいも星スタンプ イラスト2" },
+    { "type": "link", "href": "https://store.line.me/stickershop/product/18458123/ja", "text": "LINE STOREで見る" }
+  ],
+  "content_en": [
+    { "type": "image", "src": "images/poyu.webp", "alt": "Poyu-Poyu Oimo-Hoshi Stickers — illustration 1" },
+    { "type": "image", "src": "images/poyu2.webp", "alt": "Poyu-Poyu Oimo-Hoshi Stickers — illustration 2" },
+    { "type": "link", "href": "https://store.line.me/stickershop/product/18458123/ja", "text": "View on LINE STORE" }
+  ]
+},
 
 
   {
