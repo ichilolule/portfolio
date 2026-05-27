@@ -246,20 +246,85 @@ nav {
 .env-item strong { color: var(--brown); font-weight: 700; }
 
 /* ============================================================
-  SNSリンク（文字リンク）
+  Contactセクション（区切り）
 ============================================================ */
-.sns-section { margin-bottom: 0; }
-.sns-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.sns-link {
-  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
-  color: var(--brown); text-decoration: none;
-  padding: 0.45rem 1rem;
-  border: 1.5px solid var(--bg3); border-radius: 7px;
-  background: var(--bg);
-  transition: border-color 0.15s, color 0.15s, background 0.15s;
+.contact-section {
+  margin-top: 0;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--bg3);
 }
-.sns-link:hover {
-  border-color: var(--main); color: var(--main); background: var(--bg);
+.contact-section .sec-title {
+  margin-bottom: 0.8rem;
+}
+
+.intro {
+  font-size: 0.87rem; color: var(--brown2);
+  line-height: 1.85; margin-bottom: 2.5rem;
+}
+.intro a {
+  color: var(--main); font-weight: 700;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+
+/* 依頼方法カード */
+.method-section-title {
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--main);
+  padding-bottom: 0.45rem; margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--bg3);
+}
+.method-cards { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 0.75rem; }
+
+.method-card {
+  background: var(--bg); border: 1.5px solid var(--bg3);
+  border-radius: 10px; padding: 1.25rem 1.4rem;
+  display: flex; align-items: flex-start; gap: 1.1rem;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+  cursor: pointer;
+}
+.method-card:hover {
+  border-color: var(--main);
+  box-shadow: 0 2px 12px rgba(197, 124, 108, 0.12);
+  transform: translateY(-1px);
+}
+.method-card-body { flex: 1; min-width: 0; }
+.method-card-name {
+  font-family: 'Outfit', sans-serif; font-size: 0.87rem; font-weight: 700;
+  color: var(--brown); margin-bottom: 0.2rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.method-card-tag {
+  font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--pink-l); color: var(--main);
+  padding: 0.15rem 0.45rem; border-radius: 3px;
+}
+.method-card.blue .method-card-tag { background: var(--blue-l); color: var(--main); }
+.method-card-desc {
+  font-size: 0.8rem; color: var(--brown2); line-height: 1.65;
+}
+.method-card-arrow {
+  color: var(--bg3); font-size: 1rem; flex-shrink: 0;
+  align-self: center; transition: color 0.15s, transform 0.15s;
+}
+.method-card:hover .method-card-arrow { color: var(--main); transform: translateX(2px); }
+
+/* メールリンク */
+.email-row {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.82rem; color: var(--brown2);
+  margin-top: 0.5rem;
+}
+.email-row a {
+  color: var(--main); font-weight: 700;
+  text-decoration: underline; text-underline-offset: 2px;
+  font-family: 'Outfit', sans-serif;
+}
+
+@media (max-width: 640px) {
+  .method-card { padding: 1rem 1.1rem; gap: 0.85rem; }
 }
 
 /* ============================================================
@@ -272,6 +337,15 @@ footer {
   font-family: 'Outfit', sans-serif;
   font-size: 0.67rem; letter-spacing: 0.08em; color: var(--bg2);
 }
+.footer-sns {
+  display: flex; justify-content: center;
+  flex-wrap: wrap; gap: 1rem; margin-bottom: 0.7rem;
+}
+.footer-sns a {
+  font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600;
+  color: var(--bg2); text-decoration: none; transition: color 0.15s;
+}
+.footer-sns a:hover { color: var(--main); }
 </style>
 </head>
 <body>
@@ -281,7 +355,6 @@ footer {
   <div class="nav-center">
     <a href="/">Home</a>
     <a class="active" href="/about/">About</a>
-    <a href="/contact/">Contact</a>
     <a href="/policy/">Policy</a>
   </div>
   <div class="nav-lang">
@@ -297,7 +370,6 @@ footer {
 <div class="nav-mobile-overlay" id="navOverlay">
   <a href="/" onclick="toggleMenu()">Home</a>
   <a class="active" href="/about/" onclick="toggleMenu()">About</a>
-  <a href="/contact/" onclick="toggleMenu()">Contact</a>
   <a href="/policy/" onclick="toggleMenu()">Policy</a>
 </div>
 
@@ -378,14 +450,54 @@ footer {
     </div>
   </div>
 
-  <!-- SNSリンク -->
-  <div class="sns-section">
-    <div class="about-block-title" id="snsLabel">SNS・リンク</div>
-    <div class="sns-list" id="snsList"></div>
+  <!-- ============================================================
+    Contactセクション（旧 contact/index.html から統合）
+  ============================================================ -->
+  <div class="contact-section">
+    <div class="sec-eyebrow">Get in Touch</div>
+    <h2 class="sec-title" id="contactTitle">Contact</h2>
+    <p class="intro" id="introText"></p>
+
+    <!-- 依頼方法 -->
+    <div class="method-section-title" id="methodTitle">依頼方法を選ぶ</div>
+    <div class="method-cards">
+
+      <!-- Skeb -->
+      <a class="method-card" href="https://skeb.jp/@ichilolule" target="_blank" rel="noopener">
+        <div class="method-card-body">
+          <div class="method-card-name">
+            Skeb
+            <span class="method-card-tag" id="skebTag">個人向け</span>
+          </div>
+          <p class="method-card-desc" id="skebDesc"></p>
+        </div>
+        <div class="method-card-arrow">→</div>
+      </a>
+
+      <!-- Googleフォーム -->
+      <a class="method-card blue" href="https://docs.google.com/forms/d/e/1FAIpQLSf21X2YyK_ejuo0bX0wreG9IrnfB2-KlF3X2YNqGFd21tinuA/viewform?usp=header" target="_blank" rel="noopener">
+        <div class="method-card-body">
+          <div class="method-card-name">
+            <span id="formCardName">依頼フォーム</span>
+            <span class="method-card-tag" id="formTag">個人・企業</span>
+          </div>
+          <p class="method-card-desc" id="formDesc"></p>
+        </div>
+        <div class="method-card-arrow">→</div>
+      </a>
+
+    </div>
+
+    <!-- メール -->
+    <div class="email-row">
+      <span id="emailLabel">その他のご相談：</span>
+      <a id="emailLink" href="#">Email</a>
+    </div>
   </div>
 </div>
 
 <footer>
+  <div class="footer-sns" id="footerSns"></div>
   <div>© <span id="year"></span> ichilole / スタジオ水餅 — All rights reserved.</div>
 </footer>
 
@@ -396,9 +508,9 @@ footer {
 ---------------------------------------------------------- */
 const SNS_LINKS = [
   { label_ja: 'pixiv',       label_en: 'pixiv',       href: 'https://pixiv.me/ichilolule' },
-  { label_ja: 'X (Twitter)', label_en: 'X (Twitter)', href: 'https://x.com/ichilolule' },
+  { label_ja: 'X (Twitter)', label_en: 'X (Twitter)', href: 'https://x.com/ichilole' },
   { label_ja: 'Skeb',        label_en: 'Skeb',        href: 'https://skeb.jp/@ichilolule' },
-  { label_ja: 'Email',       label_en: 'Email',       href: 'mailto:' + 'info' + '@' + 'ichilole.com' },
+  { label_ja: 'Email',       label_en: 'Email',       href: 'mailto:' + 'ichilolule' + '@' + 'gmail.com' },
 ];
 
 /* ----------------------------------------------------------
@@ -414,11 +526,21 @@ const LANG = {
       'ポンコツクール、丸めがね、変顔、爆食い、両手にハンバーガー、食欲の化身、ゆるふわ系、天然、大食い選手権1位、柴犬、頬袋がパンパンのハムスターなど',
     toolsLabel:   '使用ツール',
     envLabel:     '作業環境・資格',
-    snsLabel:     'SNS・リンク',
     deviceLabel:  '機材：',
     qualLabel:    '資格：',
     qualText:     'カラーコーディネーター検定2級（2019）',
     procYr: '6年', psYr: '5年', cspYr: '3年',
+
+    /* Contact セクション */
+    contactTitle: 'Contact',
+    introText:    'イラスト依頼・お仕事のご相談はこちらからお承ります。詳細な料金・規約は<a href="/policy/">Policy</a>をご確認ください。',
+    methodTitle:  '依頼方法を選ぶ',
+    skebTag:      '個人向け',
+    skebDesc:     '匿名でリクエストを送れるサービスです。詳細なやり取りが不要な場合はこちらだと助かります。年に数回開く程度なので、「募集開始を通知」ボタンを押してお知らせを受け取っていただければ幸いです。',
+    formCardName: '依頼フォーム',
+    formTag:      '個人・企業',
+    formDesc:     '詳細なご要望をお伝えいただけるGoogleフォームです。企業・法人の方もこちらからご依頼いただけます。',
+    emailLabel:   'その他のご相談：',
   },
   en: {
     aboutCatch:
@@ -428,11 +550,21 @@ const LANG = {
       'soft and fluffy types, airheads, cool-looking disasters, round glasses, silly faces, shiba inu, excessive eating, hamburgers in both hands, the physical embodiment of appetite, first place in competitive eating contests, hamsters with cheeks so full they start looking like hammerhead sharks',
     toolsLabel:   'Tools',
     envLabel:     'Setup & Credentials',
-    snsLabel:     'Links',
     deviceLabel:  'Device: ',
     qualLabel:    'Qualification: ',
     qualText:     'Color Coordinator Exam Level 2 (2019)',
     procYr: '6 yr', psYr: '5 yr', cspYr: '3 yr',
+
+    /* Contact section */
+    contactTitle: 'Contact',
+    introText:    'For illustration commissions and project inquiries, please reach out via one of the options below. For full pricing and terms, please see the <a href="/policy/">Policy</a> page.',
+    methodTitle:  'How to Commission',
+    skebTag:      'Personal',
+    skebDesc:     'Send an anonymous request via Skeb — ideal if you prefer minimal back-and-forth. I open Skeb only a few times a year, so tapping the "Notify me" button is the best way to catch the next opening.',
+    formCardName: 'Commission Form',
+    formTag:      'Personal · Corporate',
+    formDesc:     'A detailed Google Form for sharing your full request. Suitable for both personal and corporate clients.',
+    emailLabel:   'Other inquiries:',
   },
 };
 
@@ -446,10 +578,10 @@ function setLang(lang) {
   document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
+  /* About 既存要素 */
   document.getElementById('aboutCatch').innerHTML          = t.aboutCatch;
   document.getElementById('toolsLabel').textContent        = t.toolsLabel;
   document.getElementById('envLabel').textContent          = t.envLabel;
-  document.getElementById('snsLabel').textContent          = t.snsLabel;
   document.getElementById('deviceLabel').textContent       = t.deviceLabel;
   document.getElementById('qualLabel').textContent         = t.qualLabel;
   document.getElementById('qualText').textContent          = t.qualText;
@@ -457,23 +589,45 @@ function setLang(lang) {
   document.getElementById('ps-yr').textContent             = t.psYr;
   document.getElementById('csp-yr').textContent            = t.cspYr;
 
-  renderSns(lang);
+  /* Contact 要素 */
+  const textIds = [
+    'contactTitle','methodTitle','skebTag','skebDesc',
+    'formCardName','formTag','formDesc','emailLabel'
+  ];
+  textIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && t[id] !== undefined) el.textContent = t[id];
+  });
+  const htmlIds = ['introText'];
+  htmlIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && t[id] !== undefined) el.innerHTML = t[id];
+  });
+
+  renderFooterSns(lang);
 }
 
 /* ----------------------------------------------------------
-  SNSリンク描画
+  SNSリンク描画（フッター）
 ---------------------------------------------------------- */
-function renderSns(lang) {
-  const list = document.getElementById('snsList');
-  if (list) {
-    list.innerHTML = SNS_LINKS.map(s =>
-      `<a class="sns-link" href="${s.href}" target="_blank" rel="noopener">${s['label_' + lang]}</a>`
-    ).join('');
-  }
+function renderFooterSns(lang) {
+  const el = document.getElementById('footerSns');
+  if (!el) return;
+  el.innerHTML = SNS_LINKS.map(s =>
+    `<a href="${s.href}" target="_blank" rel="noopener">${s['label_' + lang]}</a>`
+  ).join('');
 }
 
 /* 初期化 */
 setLang(localStorage.getItem('lang') || 'ja');
+
+/* メールアドレスJS組み立て */
+(function() {
+  const u = 'ichilolule';
+  const d = 'gmail.com';
+  const el = document.getElementById('emailLink');
+  if (el) el.href = 'mailto:' + u + '@' + d;
+})();
 
 function toggleMenu() {
   document.getElementById('navBurger').classList.toggle('open');
