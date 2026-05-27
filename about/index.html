@@ -147,9 +147,7 @@ nav {
   プロフィールヘッダー
 ============================================================ */
 .profile-header {
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid var(--bg3);
-  margin-bottom: 2.5rem;
+  /* 区切り線・余白なし（名前ブロックとキャッチコピーの間隔と揃える） */
 }
 
 /* アイコン＋名前の横並びブロック */
@@ -196,7 +194,7 @@ nav {
 .about-catch {
   font-size: 0.87rem; color: var(--brown2);
   line-height: 1.95;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
 }
 .about-catch strong {
   display: block;
@@ -459,7 +457,7 @@ footer {
     <p class="intro" id="introText"></p>
 
     <!-- 依頼方法 -->
-    <div class="method-section-title" id="methodTitle">依頼方法を選ぶ</div>
+    <div class="method-section-title" id="methodTitle">ご依頼方法</div>
     <div class="method-cards">
 
       <!-- Skeb -->
@@ -523,7 +521,7 @@ const LANG = {
       '<strong>VTuber / 北欧風 / マット調 / 2頭身〜6頭身 / デカ目</strong>' +
       '配信者のキャラクターイラストや企業マスコットイラストなどを制作しています。<br>' +
       'なんかあほっぽい（※あほではない）キャラクターが好き。<br>' +
-      'ポンコツクール、丸めがね、変顔、爆食い、両手にハンバーガー、食欲の化身、ゆるふわ系、天然、大食い選手権1位、柴犬、頬袋がパンパンのハムスターなど',
+      'ポンコツクール、丸めがね、変顔、爆食い、両手にハンバーガー、食欲の化身、ゆるふわ系、天然、柴犬、頬袋がパンパンのハムスターなど',
     toolsLabel:   '使用ツール',
     envLabel:     '作業環境・資格',
     deviceLabel:  '機材：',
@@ -534,7 +532,7 @@ const LANG = {
     /* Contact セクション */
     contactTitle: 'Contact',
     introText:    'イラスト依頼・お仕事のご相談はこちらからお承ります。詳細な料金・規約は<a href="/policy/">Policy</a>をご確認ください。',
-    methodTitle:  '依頼方法を選ぶ',
+    methodTitle:  'ご依頼方法',
     skebTag:      '個人向け',
     skebDesc:     '匿名でリクエストを送れるサービスです。詳細なやり取りが不要な場合はこちらだと助かります。年に数回開く程度なので、「募集開始を通知」ボタンを押してお知らせを受け取っていただければ幸いです。',
     formCardName: '依頼フォーム',
@@ -546,8 +544,8 @@ const LANG = {
     aboutCatch:
       '<strong>VTuber / Nordic / Matte / 2–6 heads tall / Big anime eyes</strong>' +
       'Creating character illustrations for streamers and corporate mascots.<br>' +
-      'Rather than realism, I focus on capturing a sense of life through expressions and scenarios.<br>' +
-      'soft and fluffy types, airheads, cool-looking disasters, round glasses, silly faces, shiba inu, excessive eating, hamburgers in both hands, the physical embodiment of appetite, first place in competitive eating contests, hamsters with cheeks so full they start looking like hammerhead sharks',
+      "I'm drawn to characters who come across as a little dopey (though they're really not).<br>" +
+      'soft and fluffy types, airheads, cool-looking disasters, round glasses, silly faces, shiba inu, excessive eating, hamburgers in both hands, the physical embodiment of appetite, hamsters with cheeks so full they start looking like hammerhead sharks',
     toolsLabel:   'Tools',
     envLabel:     'Setup & Credentials',
     deviceLabel:  'Device: ',
