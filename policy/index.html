@@ -26,6 +26,12 @@
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* iOS Safari が横画面で本文を自動拡大する挙動を無効化（100%固定）*/
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 body {
   font-family: 'Zen Kaku Gothic New', sans-serif;
   background: var(--bg2); color: var(--brown);
@@ -41,20 +47,13 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid var(--bg3);
 }
-.nav-logo {
-  font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700;
-  letter-spacing: 0.06em; color: var(--bg2); text-decoration: none;
-  transition: color 0.15s; position: relative; z-index: 110;
-}
-.nav-logo:hover { color: var(--bg); }
 .nav-center {
   display: flex; gap: 2rem;
-  position: absolute; left: 50%; transform: translateX(-50%);
 }
 .nav-center a {
-  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+  font-family: 'Outfit', sans-serif; font-size: 0.90rem; font-weight: 600;
   letter-spacing: 0.04em; text-decoration: none; color: var(--bg2);
-  padding-bottom: 3px; border-bottom: 2px solid transparent;
+  padding-bottom: 0px; border-bottom: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
 }
 .nav-center a:hover { color: var(--main); }
@@ -69,56 +68,10 @@ nav {
 .lang-btn.active { background: var(--main); color: var(--bg2); border-color: var(--main); }
 .lang-sep { font-size: 0.6rem; color: var(--bg2); }
 
-/* ハンバーガーボタン */
-.nav-burger {
-  display: none; flex-direction: column; justify-content: center;
-  gap: 5px; width: 36px; height: 36px;
-  background: none; border: none; cursor: pointer;
-  padding: 6px; position: relative; z-index: 110;
-}
-.nav-burger span {
-  display: block; width: 100%; height: 1.5px;
-  background: var(--bg2); border-radius: 2px;
-  transition: transform 0.25s, opacity 0.25s;
-  transform-origin: center;
-}
-.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-/* モバイルメニューオーバーレイ */
-.nav-mobile-overlay {
-  position: fixed; inset: 0; z-index: 105;
-  background: rgba(234, 222, 211, 0.96);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 2.5rem;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.25s, visibility 0.25s;
-}
-.nav-mobile-overlay.open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-.nav-mobile-overlay a {
-  font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700;
-  letter-spacing: 0.08em; text-decoration: none; color: var(--brown2);
-  padding-bottom: 4px; border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-}
-.nav-mobile-overlay a:hover { color: var(--main); }
-.nav-mobile-overlay a.active {
-  color: var(--brown); border-bottom-color: var(--main);
-}
-
 @media (max-width: 640px) {
   nav { padding: 0 1.25rem; }
-  .nav-center { display: none; }
-  /* JP/EN ボタンはモバイルでも表示し、ハンバーガーの左に配置 */
-  .nav-lang { margin-left: auto; margin-right: 0.6rem; }
-  .nav-burger { display: flex; }
+  /* ロゴ削除に伴い、ナビは左寄せ・JP/EN は右（space-between）。項目間隔を詰める */
+  .nav-center { gap: 1.1rem; }
   .outer { padding: 4.5rem 1.25rem 3rem; }
   .plan-cards { grid-template-columns: 1fr; }
   .formula-box { padding: 1rem; }
@@ -127,6 +80,13 @@ nav {
   .cancel-table th, .cancel-table td,
   .revision-table th, .revision-table td { padding: 0.45rem 0.5rem; }
   .revision-table .td-stage { white-space: normal; }
+}
+
+/* 極小幅（〜380px）：ナビと JP/EN が干渉しないよう少しだけ縮める */
+@media (max-width: 380px) {
+  nav { padding: 0 0.9rem; }
+  .nav-center { gap: 0.8rem; }
+  .nav-center a { font-size: 0.85rem; }
 }
 
 /* ============================================================
@@ -354,7 +314,6 @@ footer {
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">ichilole</a>
   <div class="nav-center">
     <a href="/">Home</a>
     <a href="/about/">About</a>
@@ -365,16 +324,7 @@ footer {
     <span class="lang-sep">|</span>
     <button class="lang-btn"        id="btn-en" onclick="setLang('en')">EN</button>
   </div>
-  <button class="nav-burger" id="navBurger" aria-label="メニューを開く" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
-
-<div class="nav-mobile-overlay" id="navOverlay">
-  <a href="/" onclick="toggleMenu()">Home</a>
-  <a href="/about/" onclick="toggleMenu()">About</a>
-  <a class="active" href="/policy/" onclick="toggleMenu()">Policy</a>
-</div>
 
 <div class="outer">
   <div class="sec-eyebrow">Rules & Policy</div>
@@ -527,8 +477,8 @@ footer {
 const SNS_LINKS = [
   { label_ja: 'pixiv',       label_en: 'pixiv',       href: 'https://pixiv.me/ichilolule' },
   { label_ja: 'X (Twitter)', label_en: 'X (Twitter)', href: 'https://x.com/ichilole' },
-  { label_ja: 'Skeb',        label_en: 'Skeb',        href: 'https://skeb.jp/@ichilolule' },
-  { label_ja: 'Email',      label_en: 'Email',       href: 'mailto:' + 'ichilolule' + '@' + 'gmail.com' },
+  { label_ja: 'Skeb',        label_en: 'Skeb',        href: 'https://skeb.jp/@ichilole' },
+  { label_ja: 'Email',      label_en: 'Email',       href: 'mailto:' + 'contact' + '@' + 'ichilole.com' },
 ];
 
 /* ----------------------------------------------------------
@@ -844,16 +794,6 @@ function updateActiveToc() {
 /* 初期化 */
 setLang(localStorage.getItem('lang') || 'ja');
 
-function toggleMenu() {
-  document.getElementById('navBurger').classList.toggle('open');
-  document.getElementById('navOverlay').classList.toggle('open');
-  document.body.style.overflow =
-    document.getElementById('navOverlay').classList.contains('open') ? 'hidden' : '';
-}
-
-document.getElementById('navOverlay').addEventListener('click', function(e) {
-  if (e.target === this) toggleMenu();
-});
 document.getElementById('year').textContent = new Date().getFullYear();
 
 /* ----------------------------------------------------------
